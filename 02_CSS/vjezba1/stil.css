@@ -1,0 +1,54 @@
+h1 {
+  color: maroon;
+}
+
+h2 {
+  color: red;
+}
+
+p {
+  color: purple;
+}
+
+img {
+  width: 400px;
+  height: 300px;
+  border: 2px dotted;
+}
+
+body {
+  background-color: rgb(253, 225, 62);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+}
+
+.drugi_naslov {
+  text-align: right;
+  font-size: 24px;
+}
+
+#naslov {
+  text-align: center;
+}
+
+.treci_naslov {
+  text-align: center;
+  color: green;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
+
+a:link {
+  color: rgb(71, 99, 255);
+}
+
+a:visited {
+  color: green;
+}
+
+a:hover {
+  color: yellow;
+}
+
+a:active {
+  color: orangered;
+}

@@ -1,0 +1,18 @@
+h2 {
+  text-align: center;
+  color: rgb(217, 250, 247);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  background-color: rgb(6, 221, 200);
+}
+
+img {
+  width: 500px;
+  padding: 3px;
+  background-color: orange;
+  border: 3px solid white;
+  margin: auto;
+  display: block;
+}

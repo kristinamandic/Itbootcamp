@@ -1,0 +1,24 @@
+div{
+    background-color: blue;
+}
+
+div>div{
+    background-color: green;
+}
+
+span{
+    background-color: yellow;
+}
+
+span:nth-child(2){
+    background-color: gray;
+}
+
+#treci{
+    background-color: red;
+    color: white;
+}
+
+#treci>span{
+    background-color: orange;
+}
