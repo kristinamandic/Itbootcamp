@@ -1,0 +1,18 @@
+span{
+    border:black 1px solid;
+    margin-right: 30px;
+    padding: 10px 150px 1px 5px;
+    text-align: left;
+}
+
+body{
+    margin:50px;
+}
+
+#lijevi{
+    background-color: rgb(218, 188, 149);
+}
+
+#desni{
+    background-color: grey ;
+}

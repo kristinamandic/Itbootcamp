@@ -1,0 +1,11 @@
+.prva tr:nth-child(odd){
+    font-style: italic;
+}
+
+.druga tr:nth-child(even):hover{
+    background-color:yellow !important;
+}
+
+.druga tr:nth-child(3n){
+    color: blue;
+}
