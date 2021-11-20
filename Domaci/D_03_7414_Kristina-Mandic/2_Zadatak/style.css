@@ -1,0 +1,28 @@
+.bez_margina{
+    margin: 1px;
+}
+
+img{
+    width: 300px;
+    height: 200px;
+}
+
+#prvi_div{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+div span{
+    display: inline-block;
+    text-align: center;
+    width: 300px;
+    margin-right: 110px;  
+}
+
+img{
+    margin-right: 110px;
+}
+
+#pasta{
+    vertical-align: top;
+}
