@@ -1,0 +1,42 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+header{
+    background-color: cadetblue;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+section{
+    position: relative;
+    top: 35px;
+    left: 50px;
+    z-index: 100;
+    background-color: crimson;
+    margin: 10px;
+    width: 400px;
+    height: 250px;
+}
+
+section img{
+    position: absolute; /* apsolutno u odnosu na prvi parent tag koji ima podesenu poziciju */
+    top: 50px;
+    left: 20px;
+    width: 150px;
+    height: 150px;
+}
+
+section p{
+    position: absolute;
+    top: 50px;
+    right: 20px;
+}
+
+section a{
+    position: absolute;
+    bottom: 50px;
+    right: 20px;
+}

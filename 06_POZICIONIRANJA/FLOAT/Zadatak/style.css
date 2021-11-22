@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.topbar{
+    float: left;
+    position: fixed;
+    top: 0;
+    width: 100%;
+
+}
+.topbar p{
+    background-color: black;
+    border: 1px white solid;
+    color: white;
+    display: inline-block;
+    width: 25%;
+}
+
+.topbar p:nth-child(2){
+    background-color: red;
+    z-index: 50%;
+}
