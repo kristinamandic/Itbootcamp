@@ -1,0 +1,55 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#rest{
+    position: relative;
+    top: 150px;
+}
+/* Moglo bi i ovo da bude rjesenje, da budu ostale stvari ispod menija
+body{
+    padding-top: 150px;
+} */
+
+nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+nav ul{
+    overflow: hidden;
+    list-style-type: none;
+}
+
+nav ul li{
+    float: left;
+    background-color: rgb(119, 117, 117);
+    border: 2px solid rgb(248, 129, 248);
+    width: 25%;
+    text-align: center;
+}
+
+nav ul li a{
+    color: white;
+    font: 18px;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+}
+
+nav ul li a:hover{
+    background-color: firebrick;
+}
+
+/* Padajuci Meni: */
+
+.submenu{
+    display: none;
+}
+
+.dropdown:hover .submenu{
+    display: block;
+}

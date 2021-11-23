@@ -1,0 +1,32 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer ul{
+    list-style-type: none;
+}
+
+footer ul li{
+    width: 25%;
+    background-color: blueviolet;
+    border: 2px solid lightblue;
+}
+
+footer ul li a {
+    display: block;
+    padding: 10px 0 10px 5px;
+    text-decoration: none;
+    color: white;
+}
+
+footer ul li a:hover{
+    background-color: orange;
+}
