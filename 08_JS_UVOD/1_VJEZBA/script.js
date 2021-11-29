@@ -54,3 +54,13 @@ console.log("Imamo: " + dolar + " dolara");
 
 let euro7b = dolar * dolarDinar / euroDinar;
 console.log("Imamo: " + euro7b + " eura");
+
+// Trenutni datum i vrijeme
+let datum = new Date();  // datum - objekat koji sadrzi inf. o trenutnom datumu i vremenu
+
+let godina = datum.getFullYear();
+let mjesec = datum.getMonth() + 1;
+let datumUMjesecu = datum.getDate(); // datum u mjesecu
+let danUNedelji = datum.getDay();
+console.log("Danas je " + datumUMjesecu + "." +  mjesec + "." + godina);
+console.log(danUNedelji);
