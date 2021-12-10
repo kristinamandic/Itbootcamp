@@ -130,7 +130,6 @@ switch (dan) {
 // 6. Zadatak - Preuzeti redni broj meseca sa računara i ispisati koji je to mesec u godini.
 mjesec = datum.getMonth();
 mjesec++;
-let godina;
 switch (mjesec) {
     case 1:
         console.log("Januar");
@@ -173,6 +172,7 @@ switch (mjesec) {
 // 7. Zadatak - Preuzeti redni broj meseca sa računara i ispisati koliko taj mesec ima dana. Ukoliko je u pitanju mesec februar, preuzeti i godinu sa računara, ispitati da li je godina prestupna i na osnovu toga ispisati broj dana meseca februara.
 let DaniUMjesecu = datum.getMonth();
 DaniUMjesecu++;
+let godina;
 switch (DaniUMjesecu) {
     case 1:
         console.log("Januar ima 31 dan");
@@ -216,6 +216,37 @@ switch (DaniUMjesecu) {
         break;
     case 12:
         console.log("Decembar ima 31 dan");
+}
+
+// Drugi nacin:
+DaniUMjesecu = datum.getMonth();
+DaniUMjesecu++;
+switch (DaniUMjesecu) {
+    case 2:
+        godina = datum.getFullYear();
+        if (godina % 4 == 0 && (godina % 100 != 0 || godina % 400 == 0)) {
+            console.log("Februar ima 29 dana, godina je prestupna");
+        }
+        else {
+            console.log("Februar ima 28 dana, godina nije prestupna");
+
+        }
+        break;
+    case 1:
+    case 3:
+    case 5:
+    case 7:
+    case 8:
+    case 10:
+    case 12:
+        console.log("Ovaj mjesec ima 31 dan");
+        break;
+    case 4:
+    case 6:
+    case 9:
+    case 11:
+        console.log("Ovaj mjesec ima 30 dana");
+
 }
 
 
