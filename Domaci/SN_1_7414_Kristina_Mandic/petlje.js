@@ -130,9 +130,7 @@ for (i = 1; i <= n; i++) {
 // Popravka 19. Zadatka
 n = 64;
 for (i = 1; i <= n; i++) {
-    if (i) {
-        document.body.innerHTML += `<span>${i}</span>`
-    }
+    document.body.innerHTML += `<span>${i}</span>`
     if (i % 8 == 0) {
         document.body.innerHTML += `<br>`
     }
