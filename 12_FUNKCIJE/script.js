@@ -336,3 +336,19 @@ function praksa(n, a, d) {
 
 let nesto = praksa(2, 300, 20);
 console.log(nesto);
+
+
+// 16. Zadatak 
+
+let t = 15;  // vrijeme do mosta
+let p = 10;  // kada se most podize
+let n = 12;  // podizanje i spustanje mosta - prelazak nemoguc
+let cekanje;
+
+if (p > t || t >= p + n) {
+    console.log("Cekanje je 0 sekundi");
+}
+else {
+    cekanje = n + p - t;
+    console.log(`Cekanje je ${cekanje} sekundi`);
+}
