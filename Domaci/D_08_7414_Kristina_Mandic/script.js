@@ -27,12 +27,12 @@ let promjenaZnaka = niz => {
             niz[i] = -niz[i];
         }
     }
-    return niz;
+    console.log(niz);
 }
 
-console.log(promjenaZnaka(niz1));
-console.log(promjenaZnaka(niz2));
-console.log(promjenaZnaka(niz3));
+promjenaZnaka(niz1);
+promjenaZnaka(niz1);
+promjenaZnaka(niz1);
 
 
 // 3. Zadatak - Napisati funkciju kojoj se prosleđuje celobrojni niz, a ona vraća broj elemenata niza sa neparnim indeksom.
