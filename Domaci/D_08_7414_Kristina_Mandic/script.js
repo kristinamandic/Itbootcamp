@@ -31,8 +31,8 @@ let promjenaZnaka = niz => {
 }
 
 promjenaZnaka(niz1);
-promjenaZnaka(niz1);
-promjenaZnaka(niz1);
+promjenaZnaka(niz2);
+promjenaZnaka(niz3);
 
 
 // 3. Zadatak - Napisati funkciju kojoj se prosleđuje celobrojni niz, a ona vraća broj elemenata niza sa neparnim indeksom.
