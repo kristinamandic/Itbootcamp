@@ -38,10 +38,10 @@ promjenaZnaka(niz3);
 // 3. Zadatak - Napisati funkciju kojoj se prosleđuje celobrojni niz, a ona vraća broj elemenata niza sa neparnim indeksom.
 
 let neparniIndeks = niz => {
-    let broj = "";
+    let broj = 0;
     for (let i = 0; i < niz.length; i++) {
         if (i % 2 != 0) {
-            broj += niz[i] + " ";
+            broj++;
         }
     }
     return broj;
