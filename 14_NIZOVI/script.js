@@ -211,14 +211,15 @@ console.log(indexMinVrijednosti(niz10));
 
 let brojElemenata = niz => {
     let broj = 0;
+    let srVr = arSr(niz)
     for (i = 0; i < niz.length; i++) {
-        if (niz[i] > arSr(niz)) {
+        if (niz[i] > srVr) {
             broj++;
         }
     }
     return broj;
 }
-
+console.log(arSr(niz4));
 console.log(brojElemenata(niz4));
 
 
@@ -227,14 +228,14 @@ console.log(brojElemenata(niz4));
 let pozitivniElementi = niz => {
     let suma = 0;
     for (i = 0; i < niz.length; i++) {
-        if (niz[i] >= 0) {
+        if (niz[i] > 0) {
             suma += niz[i];
         }
     }
     return suma;
 }
 
-console.log(pozitivniElementi(-1, 3, 5, -2));
+console.log(pozitivniElementi(niz4));
 
 
 // 11. Zadatak -  Odrediti broj parnih elemenata u celobrojnom nizu.
@@ -250,4 +251,182 @@ let parniElementi = niz => {
     return broj;
 }
 
-console.log(parniElementi(2, 4));
+console.log(parniElementi(niz4));
+
+
+// Zadatak - Odrediti brpj maksimalnih elemenata cjelobrojnog liza
+
+let brMaks = niz => {
+    let maks = niz[0];
+    let br = 0;
+    for (let i = 0; i < niz.length; i++) {
+        if (niz[i] > maks) {
+            maks = niz[i];
+        }
+    }
+    for (let i = 0; i < niz.length; i++) {
+        if (niz[i] == maks) {
+            br++;
+        }
+    }
+    console.log(br);
+}
+
+brMaks(niz4);
+
+
+// 16. Zadatak - Dat je niz stavki za kupovinu (članovi niza su stringovi). Prolaskom kroz niz napraviti neuređenu listu i ispisati je u html dokument.
+
+let kupovina = ["jaja", "mlijeko", "brasno", "secer", "sir"];
+/*
+let kupovinaLista = niz => {
+    for (let i = 0; i < niz.length; i++) {
+        document.body.innerHTML += `<li>${niz[i]}</li>`
+    }
+}
+*/
+
+let kupovinaLista = niz => {
+    rezultat = "";
+    rezultat += "<ul>";
+    for (let i = 0; i < niz.length; i++) {
+        rezultat += `<li>${niz[i]}</li>`;
+    }
+    rezultat += "</ul>";
+    return rezultat;
+}
+
+
+// document.body.innerHTML += kupovinaLista(kupovina);
+document.getElementById('d1').innerHTML += kupovinaLista(kupovina);
+
+
+// 17. Zadatak - Dat je niz imena košarkaškog tima. Prolaskom kroz niz formirati tabelu u čijim su redovima imena tima, i tabelu ispisati u html dokument.
+
+let kosarkasi = ["Ivan", "Nikola", "Matija", "Pavle"];
+
+let kosarkasiTabela = niz => {
+    let tabela = `<table border = "1">`;
+    for (let i = 0; i < niz.length; i++) {
+        tabela += `<tr>
+        <td>${niz[i]}</td>
+        </tr>`
+    }
+    tabela += `</table>`;
+    document.body.innerHTML += tabela;
+}
+
+kosarkasiTabela(kosarkasi);
+
+
+// 18. Zadatak - Dat je niz stringova čiji su članovi putanje do slika. Prikazati sve sliku u html dokumentu sa putanjama navedenim u nizu.
+
+let putanje = ["https://assets3.thrillist.com/v1/image/2870172/828x610/flatten;crop;webp=auto;jpeg_quality=70", "https://picturedrocks.com/wp-content/uploads/2021/05/Pictured-Rocks-Spray-Falls.jpg", "https://advancelocal-adapter-image-uploads.s3.amazonaws.com/expo.advance.net/img/ad661f30c8/width2048/633_picturedrocks.jpeg"];
+
+let slike = niz => {
+    for (let i = 0; i < niz.length; i++) {
+        document.body.innerHTML += `<img src="${niz[i]}"/>`
+    }
+}
+
+slike(putanje);
+
+
+// 19. Zadatak - Ispisati dužinu svakog elementa u nizu stringova. 
+let stringovi = ["Cokolada", "Torta", "Keks", "Bombon", "Voce"];
+
+let duzinaStringova = niz => {
+    let length = "";
+    for (let i = 0; i < niz.length; i++) {
+        // console.log(niz[i].length);
+        length += niz[i].length + " ";
+    }
+    console.log(length);
+}
+
+duzinaStringova(stringovi);
+
+
+// 20. Zadatak - Odrediti element u nizu stringova sa najvećom dužinom.
+
+let najvecaDuzina = niz => {
+    let maks = niz[0].length;
+    let element = niz[0];
+    for (let i = 0; i < niz.length; i++) {
+        if (maks < niz[i].length) {
+            maks = niz[i].length;
+            element = niz[i];
+        }
+    }
+    console.log(element);
+}
+
+najvecaDuzina(stringovi);
+
+
+// 21. Zadatak - Odrediti broj elemenata u nizu stringova čija je dužina veća od prosečne dužine svih stringova u nizu.
+
+let prosjecnaDuzina = niz => {
+    let suma = 0;
+    let broj = 0;
+    for (let i = 0; i < niz.length; i++) {
+        suma += niz[i].length;
+        broj++;
+    }
+    let prDu = suma / broj; // prosjecna duzina
+    let veciOdProsjeka = 0;
+    for (let i = 0; i < niz.length; i++) {
+        if (niz[i].length > prDu) {
+            veciOdProsjeka++;
+        }
+    }
+    console.log(veciOdProsjeka);
+}
+
+prosjecnaDuzina(stringovi);
+
+
+// 22. Zadatak - Odrediti broj elemenata u nizu stringova koji sadrže slovo 'a’. 
+//let stringovi = ["Cokolada", "Torta", "Keks", "Bombon", "Voce"];
+
+let slovoA = niz => {
+    let broj = 0;
+    for (let i = 0; i < niz.length; i++) {
+        if (niz[i].indexOf("a") != -1) {
+            broj++
+        }
+    }
+    console.log(broj);
+}
+
+/*
+let slovoA = niz => {
+    let broj = 0;
+    for (let i = 0; i < niz.length; i++) {
+        if (niz[i].includes("a")) {
+            broj++
+        }
+    }
+    console.log(broj);
+}
+*/
+
+slovoA(stringovi);
+
+
+// 23. Zadatak - Odrediti broj elemenata u nizu stringova koji počinju na slovo 'a' ili 'A’. 
+
+let pocetnoSlovoA = niz => {
+    let broj = 0;
+    for (let i = 0; i < niz.length; i++) {
+        if (niz[i].charAt(0) == "a" || niz[i].charAt(0) == "A") {
+            broj++;
+        }
+    }
+    console.log(broj);
+}
+
+pocetnoSlovoA(stringovi);
+
+
+// 24. Zadatak - 
