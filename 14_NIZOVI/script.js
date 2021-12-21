@@ -429,4 +429,13 @@ let pocetnoSlovoA = niz => {
 pocetnoSlovoA(stringovi);
 
 
-// 24. Zadatak - 
+// 24. Zadatak
+
+// let a = [1, 3, 5, 7];
+// let b = [2, 3, 4, 6];
+
+// let c = (a, b) => {
+//     for (let i = 0; i < b.length; i++) {
+//     }
+
+// }
