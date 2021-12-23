@@ -119,8 +119,110 @@ console.log(prakse(3, 1000));
 
 // 7. Zadatak - Programirati funkciju za mašinu za izradu nogara za stolove u jednoj fabrici drveta. Prva noga stola je duža od druge noge stola isto koliko druga noga stola od treće noge stola, isto kao i treća noga stola od četvrte noge stola. Dužina prve noge stola i još dve noge stola su poznate, a četvrta nije poznata. Funkcija fabrika određuje i vraća dužinu izostale noge stola ako se funkciji prosleđuju poznate dužine ostale tri noge stola (dužina prve noge stola i dužine neke dve noge stola).
 
-// let fabrika = (a, b, c, d) => {
 
-// }
 
-// console.log(fabrika(4, 3, 2));
+// 8. Zadatak - Napisati funkciju prethodniDan kojoj se prosleđuju tri pozitivna cela broja koja predstavljaju dan, mesec i godinu jednog ispravnog datuma (najuporniji mogu da ispituju i da li su dobre prosleđene vrednosti :) ). Funkcija ispisuje tri cela broja koja predstavljaju dan, mesec i godinu jučerašnjeg datuma. Svi brojevi se ispisuju u jednom redu, a iza svakog broja navodi se tačka.
+
+let prethodniDan = (a, b, c) => {
+    if (b == 1) {
+        if (a < 1 || a > 31) {
+            console.log(`Unjeli ste pogresan datum`);
+        }
+        else if (a == 1) {
+            console.log(`Jucerasnji datum je ${31}. ${12}. ${c - 1}.`);
+        }
+        else {
+            console.log(`Jucerasnji datum je ${a - 1}. ${b}. ${c}.`);
+        }
+    }
+    else if (b == 2) {
+        if (c % 4 == 0 && (c % 100 != 0 || c % 400 == 0)) {
+            if (a < 1 || a > 28) {
+                console.log('Unjeli ste pogresan datum');
+            }
+            else if (a == 1) {
+                console.log(`Jucerasnji datum je ${31}. ${b - 1}. ${c}.`);
+            }
+            else {
+                console.log(`Jucerasnji datum je ${a - 1}. ${b}. ${c}.`);
+            }
+        }
+        else {
+            if (a < 1 || a > 29) {
+                console.log('Unjeli ste pogresan datum');
+            }
+            else if (a == 1) {
+                console.log(`Jucerasnji datum je ${31}. ${b - 1}. ${c}.`);
+            }
+            else {
+                console.log(`Jucerasnji datum je ${a - 1}. ${b}. ${c}.`);
+            }
+        }
+    }
+    else if (b == 3) {
+        if (c % 4 == 0 && (c % 100 != 0 || c % 400 == 0)) {
+            if (a < 1 || a > 31) {
+                console.log('Unjeli ste pogresan datum');
+            }
+            else if (a == 1) {
+                console.log(`Jucerasnji datum je ${28}. ${b - 1}. ${c}.`);
+            }
+            else {
+                console.log(`Jucerasnji datum je ${a - 1}. ${b}. ${c}.`);
+            }
+        }
+        else {
+            if (a < 1 || a > 31) {
+                console.log('Unjeli ste pogresan datum');
+            }
+            else if (a == 1) {
+                console.log(`Jucerasnji datum je ${29}. ${b - 1}. ${c}.`);
+            }
+            else {
+                console.log(`Jucerasnji datum je ${a - 1}. ${b}. ${c}.`);
+            }
+        }
+    }
+    else if (b == 4 || b == 6 || b == 9 || b == 11) {
+        if (a < 1 || a > 30) {
+            console.log(`Unjeli ste pogresan datum`);
+        }
+        else if (a == 1) {
+            console.log(`Jucerasnji datum je ${31}. ${b - 1}. ${c}.`);
+        }
+        else {
+            console.log(`Jucerasnji datum je ${a - 1}. ${b}. ${c}.`);
+        }
+    }
+    else if (b == 8) {
+        if (a < 1 || a > 31) {
+            console.log(`Unjeli ste pogresan datum`);
+        }
+        else if (a == 1) {
+            console.log(`Jucerasnji datum je ${31}. ${b - 1}. ${c}.`);
+        }
+        else {
+            console.log(`Jucerasnji datum je ${a - 1}. ${b}. ${c}.`);
+        }
+    }
+    else if (b < 1 || b > 12) {
+        console.log(`Pogresno ste unjeli mjesec`);
+    }
+    else {
+        if (a < 1 || a > 31) {
+            console.log(`Unjeli ste pogresan datum`);
+        }
+        else if (a == 1) {
+            console.log(`Jucerasnji datum je ${30}. ${b - 1}. ${c}.`);
+        }
+        else {
+            console.log(`Jucerasnji datum je ${a - 1}. ${b}. ${c}.`);
+        }
+    }
+}
+
+prethodniDan(5, 2, 2001);
+prethodniDan(1, 1, 2000);
+prethodniDan(1, 3, 2000);
+prethodniDan(3, 8, 2009);
+prethodniDan(1, 7, 2008);
