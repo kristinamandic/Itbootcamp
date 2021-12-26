@@ -39,6 +39,13 @@ let user1 = {
             suma += b.likes;
         });
         return suma;
+    },
+    myDsilikes: function () {
+        let suma = 0;
+        this.blogs.forEach(b => {
+            suma += b.dislikes
+        });
+        return suma;
     }
 };
 
@@ -50,6 +57,13 @@ let user2 = {
         let suma = 0;
         this.blogs.forEach(b => {
             suma += b.likes;
+        });
+        return suma;
+    },
+    myDsilikes: function () {
+        let suma = 0;
+        this.blogs.forEach(b => {
+            suma += b.dislikes
         });
         return suma;
     }
@@ -144,31 +158,6 @@ users.forEach(u => {
 
 // 6. Zadatak - Ispisati naslove onih blogova koji imaju natprosečan broj pozitivnih ocena - treba nam globalni prosjek
 console.log("Ispisati naslove onih blogova koji imaju natprosečan broj pozitivnih ocena:");
-/*
-users.forEach(u => {
-    let blogsU = u.blogs;
-    let suma = 0;
-    blogsU.forEach(b => {
-        suma += b.likes;
-    });
-    let prosjek = suma / blogsU.length;
-    blogsU.forEach(b => {
-        if (b.likes > prosjek) {
-            console.log(b.title);
-        }
-    });
-});
-
-// 2. nacin
-users.forEach(u => {
-    let prosjek = u.myLikes() / u.blogs.length;
-    u.blogs.forEach(b => {
-        if (b.likes > prosjek) {
-            console.log(b.title);
-        }
-    });
-});
-*/
 
 let globalAvgLikes = arr => {
     let globalSum = 0;  // suma svih lajkova svih korisnika
@@ -196,26 +185,219 @@ let blogoviSaNatprosjecnoLajkova = arr => {
 
 blogoviSaNatprosjecnoLajkova(users);
 
-
-// 7. Zadatak - Ispisati naslove onih blogova koji imaju natprosečan broj pozitivnih ocena i ispodprosečan broj negativnih ocena
-console.log("Ispisati naslove onih blogova koji imaju natprosečan broj pozitivnih ocena i ispodprosečan broj negativnih ocena:");
-
+/*
 users.forEach(u => {
     let blogsU = u.blogs;
-    let sumaPoz = 0;
-    let sumaNeg = 0;
+    let suma = 0;
     blogsU.forEach(b => {
-        sumaPoz += b.likes;
-        sumaNeg += b.dislikes;
+        suma += b.likes;
     });
-    let prosjekPoz = sumaPoz / blogsU.length;
-    let prosjekNeg = sumaNeg / blogsU.length;
+    let prosjek = suma / blogsU.length;
     blogsU.forEach(b => {
-        if (b.likes > prosjekPoz && b.dislikes < prosjekNeg) {
+        if (b.likes > prosjek) {
             console.log(b.title);
         }
     });
 });
 
+// 2. nacin
+users.forEach(u => {
+    let prosjek = u.myLikes() / u.blogs.length;
+    u.blogs.forEach(b => {
+        if (b.likes > prosjek) {
+            console.log(b.title);
+        }
+    });
+});
+*/
+
+
+// 7. Zadatak - Ispisati naslove onih blogova koji imaju natprosečan broj pozitivnih ocena i ispodprosečan broj negativnih ocena
+console.log("Ispisati naslove onih blogova koji imaju natprosečan broj pozitivnih ocena i ispodprosečan broj negativnih ocena:");
+
+let globalAvgDislikes = arr => {
+    let globalSum = 0;
+    let globalBr = 0;
+    arr.forEach(u => {
+        globalSum += u.myDsilikes();
+        globalBr += u.blogs.length;
+    });
+    return globalSum / globalBr;
+};
+
+console.log(globalAvgDislikes(users));
+
+let moreLikesLessDislikes = arr => {
+    let avgLik = globalAvgLikes(arr);
+    let avgDis = globalAvgDislikes(arr);
+    arr.forEach(u => {
+        u.blogs.forEach(b => {
+            if (b.likes > avgLik && b.dislikes < avgDis) {
+                console.log(b.title);
+            }
+        });
+    });
+};
+
+moreLikesLessDislikes(users);
+
+
+// users.forEach(u => {
+//     let blogsU = u.blogs;
+//     let sumaPoz = 0;
+//     let sumaNeg = 0;
+//     blogsU.forEach(b => {
+//         sumaPoz += b.likes;
+//         sumaNeg += b.dislikes;
+//     });
+//     let prosjekPoz = sumaPoz / blogsU.length;
+//     let prosjekNeg = sumaNeg / blogsU.length;
+//     blogsU.forEach(b => {
+//         if (b.likes > prosjekPoz && b.dislikes < prosjekNeg) {
+//             console.log(b.title);
+//         }
+//     });
+// });
+
 
 // ZADATAK - VREMENSKA PROGNOZA
+// Napraviti niz dan objekata
+
+let dan1 = {
+    datum: "2021/12/24",
+    kisa: true,
+    sunce: true,
+    oblacno: true,
+    temp: [1, 4, 5, 7, 3],
+    sumTemp: function () {
+        let suma = 0;
+        this.temp.forEach(t => {
+            suma += t;
+        });
+        return suma;
+    }
+};
+
+let dan2 = {
+    datum: "2021/12/25",
+    kisa: false,
+    sunce: true,
+    oblacno: true,
+    temp: [-1, 5, 3, 0, 0],
+    sumTemp: function () {
+        let suma = 0;
+        this.temp.forEach(t => {
+            suma += t;
+        });
+        return suma;
+    }
+};
+
+let dan3 = {
+    datum: "2021/12/26",
+    kisa: true,
+    sunce: false,
+    oblacno: true,
+    temp: [5, 6, 15, 2, 1, 0],
+    sumTemp: function () {
+        let suma = 0;
+        this.temp.forEach(t => {
+            suma += t;
+        });
+        return suma;
+    }
+};
+
+let dan = [dan1, dan2, dan3];
+
+// 1. Zadatak - Napraviti arrow funksiju koja ispisuje datum u kome je najviše puta izmerena temperatura. Ukoliko ima više takvih datuma:
+// Ispisati prvi od njih
+// Ispisati poslednji od njih
+
+let najviseMjerenja = arr => {
+    let max = arr[0].temp;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].temp.length > max.length) {
+            max = arr[i].temp;
+        }
+    }
+    return max;
+};
+
+
+let ispisatiPrvi = arr => {
+    let max = najviseMjerenja(arr);
+    let datum = arr[0].datum;
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].temp.length == max.length) {
+            datum = arr[i].datum;
+            return datum;
+        }
+    }
+};
+
+console.log(ispisatiPrvi(dan));
+
+let ispisatiPoslednji = arr => {
+    let max = najviseMjerenja(arr);
+    let datum = arr[0].datum;
+    arr.forEach(d => {
+        if (d.temp.length == max.length) {
+            datum = d.datum;
+        }
+    });
+    return datum;
+};
+
+console.log(ispisatiPoslednji(dan));
+
+
+// 2. Zadatak -  Napraviti arrow funksiju koja prebrojava i ispisuje koliko je bilo kišnih dana, koliko je bilo sunčanih dana i koliko je bilo oblačnih dana
+
+let prebrojavanje = arr => {
+    let suncano = 0;
+    let oblacno = 0;
+    let kisno = 0;
+    arr.forEach(d => {
+        if (d.sunce == true) {
+            suncano++;
+        }
+        if (d.kisa == true) {
+            kisno++;
+        };
+        if (d.oblacno == true) {
+            oblacno++;
+        }
+    });
+    console.log(`Bilo je ${suncano} suncanih dana, ${oblacno} oblacnih dana i ${kisno} kisnih dana`);
+};
+
+prebrojavanje(dan);
+
+
+// 3. Zadatak - Napraviti arrow funkciju koja računa i vraća koliko je bilo dana sa natprosečnom temperaturom
+
+let globalAvgTemp = arr => {
+    let globalSum = 0;
+    let globalNum = 0;
+    arr.forEach(d => {
+        globalSum += d.sumTemp();
+        globalNum += d.temp.length;
+    });
+    return globalSum / globalNum;
+};
+
+console.log(`Prosjecna temperatura je ${globalAvgTemp(dan)}`);
+
+let aboveAvgTemp = arr => {
+    let avgTemp = globalAvgTemp(arr);
+    let br = 0;
+    arr.forEach(d => {
+        if (d.sumTemp() / d.temp.length > avgTemp) {
+            br++;
+        }
+    });
+    return br;
+};
+
+console.log(`Bilo je ${aboveAvgTemp(dan)} dana sa nadprosjecnom temperaturom`);

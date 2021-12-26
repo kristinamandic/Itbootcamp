@@ -457,7 +457,7 @@ let zad24DN = (a, b) => {
 };
 
 let resDN = zad24DN(a, b);
-console.log(res);
+console.log(resDN);
 
 
 // Ako su RAZLICITE DUZINE
@@ -478,7 +478,37 @@ let zad24RD = (a, b) => {
 };
 
 let resRD = zad24RD(a, b);
-console.log(res);
+console.log(resRD);
 
 
 // 25. Zadatak
+
+a = [1, 4, 7, -5];
+b = [6, 6, 0, 9];
+
+let zad25 = (a, b) => {
+    let c = [];
+    for (let i = 0; i < a.length; i++) {
+        c[i] = a[i] * b[i];
+    }
+    return c;
+};
+
+let res25 = zad25(a, b);
+console.log(res25);
+
+
+// 26. Zadatak 
+
+a = [1, 2, 3, 4, 5, 6];
+
+let zad26 = a => {
+    let b = [];
+    for (let i = 0; i < a.length / 2; i++) {
+        b[i] = (a[i] + a[6 - 1 - i]) / 2;
+    }
+    return b;
+};
+
+let res26 = zad26(a);
+console.log(res26);

@@ -78,7 +78,6 @@ Napisati metode koje:
 4. Prima dva parametra koji predstavljaju dve temperature. Potrebno je da metoda vrati broj merenja u toku dana čija je vrednost između ove dve zadate temperature (ne uključujući te dve vrednosti).
 5. Vraća true ukoliko je u većini dana temperatura bila iznad proseka. U suprotnom vraća false. 
 6. Za dan se smatra da je leden ukoliko nijedna temperatura izmerena tog dana nije iznosila iznad 0 stepeni. Metod vraća true ukoliko je dan bio leden, u suprotnom metod vraća false.
-
 */
 
 let vrijeme = {
@@ -86,7 +85,8 @@ let vrijeme = {
     kisa: true,
     sunce: false,
     oblacno: true,
-    vrijednostiTemp: [-1, -1, 0, -1, 2, -2, -2],
+    vrijednostiTemp: [-1, -1, 0, -2, -1, -2, -2, -2],
+    // 1. Zadatak
     prosjecnaTemp: function () {
         let suma = 0;
         let broj = 0;
@@ -96,6 +96,7 @@ let vrijeme = {
         });
         return suma / broj;
     },
+    // 2. Zadatak
     natprosjecnaTemp: function () {
         let pt = this.prosjecnaTemp();
         let broj = 0;
@@ -106,6 +107,7 @@ let vrijeme = {
         });
         return broj;
     },
+    // 3. Zadatak 
     maxTemp: function () {
         let max = this.vrijednostiTemp[0];
         let broj = 0;
@@ -121,39 +123,52 @@ let vrijeme = {
         });
         return broj;
     },
+    // 4. Zadatak
     odDo: function (n, m) {
-        for (let i = n++; i < m; i++) {
+        let broj = 0;
+        for (let i = n + 1; i < m; i++) {
             this.vrijednostiTemp.forEach(temp => {
                 if (temp == i) {
-                    console.log(temp);
+                    broj++;
                 }
             });
         }
+        return broj;
     },
+    // 5. Zadatak 
     iznadProsjeka: function () {
         let pt = this.prosjecnaTemp();
         let broj = 0;
-        let broj1 = 0;
         this.vrijednostiTemp.forEach(temp => {
-            broj++;
             if (temp > pt) {
-                broj1++;
+                broj++;
             }
         });
-        if (broj1 > broj / 2) {
+        if (broj > this.vrijednostiTemp.length / 2) {
             return true;
         }
         else {
             return false;
         }
     },
-    //6.
+    //6. Zadatak
     leden: function () {
         /*this.vrijednostiTemp.forEach(temp => {
             if (temp > 0) {
                 return false;
             }
-        }); NE MOZE U FOR EACH PETLJI, SAMO U FOR */
+        }); RETURN NE MOZE U FOR EACH PETLJI, SAMO U FOR */
+
+        /* prvi nacin 
+        let broj = 0;
+        this.vrijednostiTemp.forEach(t => {
+            if (t > 0) {
+                broj++;
+            }
+        });
+
+        return broj == 0;
+        */
 
         for (let i = 0; i < this.vrijednostiTemp.length; i++) {
             if (this.vrijednostiTemp[i] > 0) {
@@ -164,9 +179,20 @@ let vrijeme = {
     }
 };
 
+console.log("1. Zadatak");
 console.log(vrijeme.prosjecnaTemp());
+
+console.log("2. Zadatak");
 console.log(vrijeme.natprosjecnaTemp());
+
+console.log("3. Zadatak");
 console.log(vrijeme.maxTemp());
-vrijeme.odDo(0, 2);
+
+console.log("4. Zadatak");
+console.log(vrijeme.odDo(-1, 2));
+
+console.log("5. Zadatak");
 console.log(vrijeme.iznadProsjeka());
+
+console.log("6. Zadatak");
 console.log(vrijeme.leden());

@@ -119,6 +119,32 @@ console.log(prakse(3, 1000));
 
 // 7. Zadatak - Programirati funkciju za mašinu za izradu nogara za stolove u jednoj fabrici drveta. Prva noga stola je duža od druge noge stola isto koliko druga noga stola od treće noge stola, isto kao i treća noga stola od četvrte noge stola. Dužina prve noge stola i još dve noge stola su poznate, a četvrta nije poznata. Funkcija fabrika određuje i vraća dužinu izostale noge stola ako se funkciji prosleđuju poznate dužine ostale tri noge stola (dužina prve noge stola i dužine neke dve noge stola).
 
+// let fabrika = (a, b, c, d) => {
+//     if (a - b == b - c) {
+//         d = c - (a - b);
+//     }
+//     else if (a - b == b - (d + (a - b))) {
+//         c = b - c;
+//     }
+//     else if (c - d == (a - (c + d))) {
+//         b = c + d;
+//     }
+//     return a, b, c, d;
+// };
+
+let fabrika = (a, b, c, d) => {
+    if (a - b == b - c) {   // fali d
+        return c - (b - c);
+    }
+    else if (a - b == 2 * (b - c)) {  // fali b
+        return a - (b - c);
+    }
+    else if (2 * (a - b) == b - c) {  // fali c
+        return b - (a - b)
+    }
+};
+
+console.log(fabrika(20, 15, 5));
 
 
 // 8. Zadatak - Napisati funkciju prethodniDan kojoj se prosleđuju tri pozitivna cela broja koja predstavljaju dan, mesec i godinu jednog ispravnog datuma (najuporniji mogu da ispituju i da li su dobre prosleđene vrednosti :) ). Funkcija ispisuje tri cela broja koja predstavljaju dan, mesec i godinu jučerašnjeg datuma. Svi brojevi se ispisuju u jednom redu, a iza svakog broja navodi se tačka.
@@ -137,7 +163,7 @@ let prethodniDan = (a, b, c) => {
     }
     else if (b == 2) {
         if (c % 4 == 0 && (c % 100 != 0 || c % 400 == 0)) {
-            if (a < 1 || a > 28) {
+            if (a < 1 || a > 29) {
                 console.log('Unjeli ste pogresan datum');
             }
             else if (a == 1) {
@@ -148,7 +174,7 @@ let prethodniDan = (a, b, c) => {
             }
         }
         else {
-            if (a < 1 || a > 29) {
+            if (a < 1 || a > 28) {
                 console.log('Unjeli ste pogresan datum');
             }
             else if (a == 1) {
@@ -165,7 +191,7 @@ let prethodniDan = (a, b, c) => {
                 console.log('Unjeli ste pogresan datum');
             }
             else if (a == 1) {
-                console.log(`Jucerasnji datum je ${28}. ${b - 1}. ${c}.`);
+                console.log(`Jucerasnji datum je ${29}. ${b - 1}. ${c}.`);
             }
             else {
                 console.log(`Jucerasnji datum je ${a - 1}. ${b}. ${c}.`);
@@ -176,7 +202,7 @@ let prethodniDan = (a, b, c) => {
                 console.log('Unjeli ste pogresan datum');
             }
             else if (a == 1) {
-                console.log(`Jucerasnji datum je ${29}. ${b - 1}. ${c}.`);
+                console.log(`Jucerasnji datum je ${28}. ${b - 1}. ${c}.`);
             }
             else {
                 console.log(`Jucerasnji datum je ${a - 1}. ${b}. ${c}.`);
