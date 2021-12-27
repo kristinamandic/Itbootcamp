@@ -112,7 +112,7 @@ let student5 = {
     name: "Katarina",
     surname: "Nakicenovic",
     year: 1,
-    marks: [6, 7, 6, 7, 8],
+    marks: [10, 10, 10, 10, 10],
     myMarks: function () {
         let suma = 0;
         this.marks.forEach(m => {
@@ -221,10 +221,10 @@ let ekstra = arr => {
             else if (m == 10) {
                 br10++
             }
-            if (br10 + br9 == s.marks.length && br10 >= br9 * 2) {
-                console.log(s.name, s.surname);
-            }
         });
+        if (br10 + br9 == s.marks.length && br10 >= br9 * 2) {
+            console.log(s.name, s.surname);
+        }
     });
 };
 
@@ -244,10 +244,10 @@ let kida = arr => {
             else if (m == 9) {
                 br9++;
             }
-            if (br10 + br9 == s.marks.length && br9 < s.year) {
-                console.log(s.name, s.surname);
-            }
         });
+        if (br10 + br9 == s.marks.length && br9 < s.year) {
+            console.log(s.name, s.surname);
+        }
     });
 };
 
@@ -266,10 +266,10 @@ let razbija = arr => {
             if (s.year == 1) {
                 s.year++;
             }
-            if (br10 == s.marks.length && br10 >= 5 * (s.year - 1)) {
-                console.log(s.name, s.surname);
-            }
         });
+        if (br10 == s.marks.length && br10 >= 5 * (s.year - 1)) {
+            console.log(s.name, s.surname);
+        }
     });
 };
 
