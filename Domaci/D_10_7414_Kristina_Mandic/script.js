@@ -19,7 +19,7 @@ let dan = {
         let prethodni = this.temp[0];
         let sljedeci = this.temp[0 + 1];
         let br = 0;
-        for (let i = 0; i < this.temp.length; i++) {
+        for (let i = 0; i < (this.temp.length - 1); i++) {
             prethodni = this.temp[i];
             sljedeci = this.temp[i + 1];
             if (prethodni - sljedeci > 8 || sljedeci - prethodni > 8) {
@@ -58,3 +58,4 @@ let dan = {
 console.log(dan.tropski());
 console.log(dan.nepovoljan());
 console.log(dan.neuobicajen());
+dan.nepovoljan()
