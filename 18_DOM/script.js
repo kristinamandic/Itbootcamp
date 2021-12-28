@@ -144,3 +144,230 @@ console.log(sveSlike);
 // ILI
 sveSlike = document.querySelectorAll("img[src]");
 console.log(sveSlike);
+
+
+////////////////////////////////////////////////
+// MJENJANJE SADRZAJA ELEMENATA
+
+// Moze da se pise = ili +=, += dodaje novu vrijednost
+p1.innerHTML += "Promjenjen <span>tekst</span> paragrafa";
+
+
+// Promjena href atributa svim linkovima
+sviLinkovi = document.querySelectorAll("a");
+sviLinkovi.forEach(link => {
+    // HTML atributi
+    link.href = "https://www.google.com/";
+    link.target = "_blank";
+
+    // CSS stilovi
+    link.style.color = "green";
+    link.style.textDecoration = "none";
+
+    // link.style = "color: green; text-decoration: none";
+
+    // Preko metode
+    link.setAttribute('name', 'link2');  // isto kao i link.name = 'link2;'
+    link.setAttribute("style", "color: green; text-decoration: none");  // isto kao i link.style...
+});
+
+
+/////////////////////////////////////////////
+// VJEZBANJE
+// 1. Zadatak - Selektovati sve paragrafe i u svakom od njih pridodati tekst "VAZNO!!!"
+
+paragrafi = document.querySelectorAll("p");
+paragrafi.forEach(p => {
+    p.innerHTML += "VAZNO!!!"
+});
+
+
+// 2. Zadatak - Svim divovima na stranici sa klasom "error", dodati po jedan naslov najvese velicine sa tekstrom "Greska!"
+
+let error = document.getElementsByClassName("div.error");
+let errorNiz = Array.from(error);
+errorNiz.forEach(div => {
+    div.innerHTML += `<h1>Greska!</h1>`
+});
+
+
+// 3. Zadatak - Neka je broj n broj paragrafa u datom dokumentu. U svakom i-tom paragrafu dodati broj i*i, za svako i = 1, 2, ...n
+
+paragrafi = document.getElementsByTagName("p");
+// let paragrafiNiz = Array.from(paragrafi);
+console.log(paragrafi);
+for (let i = 1; i < paragrafi.length; i++) {
+    paragrafi[i].innerHTML += i * i;
+}
+
+// let paragrafiNiz = Array.from(paragrafi);
+// paragrafiNiz.forEach((p, index) => {
+//     p.innerHTML += (index + 1) ** 2;  // nesto nije okej s ovim
+// });
+
+
+// 4. Zadatak - Svim slikama dodati alternativni tekst
+
+sveSlike = document.getElementsByTagName("img");
+let sveSlikeNiz = Array.from(sveSlike);
+sveSlikeNiz.forEach(s => {
+    s.alt = "Drvo";
+});
+
+
+// 5. Zadatak - Svim paragrafima postaviti stribut style tako da budu obojeni ljubicastom bojom
+
+paragrafi = document.getElementsByTagName("p");
+paragrafiNiz = Array.from(paragrafi);
+paragrafiNiz.forEach(p => {
+    p.setAttribute("style", "color: purple");
+});
+
+
+// 6. Zadatak - Svim parnim paragrafima na stranici postaviti pozadinsku zelenu boju, a svim neparnim paragrafima postaviti pozadinsku crvenu boju
+
+paragrafi = document.getElementsByTagName("p");
+for (let i = 0; i < paragrafi.length; i++) {
+    if (i % 2 == 0) {
+        paragrafi[i].style.backgroundColor = "green";
+        paragrafi[i].style.color = "red";
+
+    }
+    else {
+        paragrafi[i].style.backgroundColor = "red";
+    }
+}
+
+// 7. Zadatak
+
+sviLinkovi = document.querySelectorAll("a");
+sviLinkovi.forEach((l, i) => {
+    l.style.padding = "5px";
+    l.style.fontSize = "18px";
+    l.style.textDecoration = "none";
+    if (i % 2 != 0) {
+        l.style.backgroundColor = "green";
+        l.style.color = "purple";
+    }
+    else {
+        l.style.backgroundColor = "blue";
+        l.style.color = "white";
+    }
+});
+
+
+// 8. Zadatak 
+// Imas slikano na telefonu
+sveSlike = document.querySelectorAll("img[png]");
+// sveSlike.forEach(s => {
+//     s.style.border = "red solid 2px";
+//     // s.style.borderWidth = "2px"
+// });
+
+
+// 9. Zadatak 
+
+
+// 10. Zadatak 
+
+let imena = ["Jelena", "Stefan", "Kristina", "Ines"];
+
+imena.forEach(i => {
+    /*
+    if (i.charAt(0) == "S") {
+        document.body.innerHTML += `<a href="# _blank">${i}</a><br>`
+    }
+    else {
+        document.body.innerHTML += `<a href="#">${i}</a><br>`
+    }
+    */
+    /*
+    if (i.startsWith("S")) {
+        document.body.innerHTML += `<a href="#" target="_blank">${i}</a><br>`
+    }
+    else {
+        document.body.innerHTML += `<a href="#">${i}</a><br>`
+    }
+    */
+    if (i[0] == "S") {
+        document.body.innerHTML += `<a href="#" target="_blank">${i}</a><br>`
+    }
+    else {
+        document.body.innerHTML += `<a href="#">${i}</a><br>`
+    }
+});
+
+
+// U listi nesto, drugi dio zadatka
+
+let listaString = "<ul>";
+imena.forEach((ime, i) => {
+    if (i % 2 == 0) {
+        listaString += `<li style="color:red">${ime}</li>`
+    }
+    else {
+        listaString += `<li style="color:limegreen">${ime}</li>`
+    }
+});
+listaString += "</ul>";
+document.body.innerHTML += listaString;
+
+// Treci dio zadatka - samostalno
+
+
+
+
+////////////////////////////////////////
+// MJENJANJE KLASA ELEMENTIMA
+
+// 1. Zadatak - Svim parnim paragrafima na stranici dodati klasu error, a svim neparnim paragrafima dodati klasu success
+
+paragrafi = document.querySelectorAll("p");
+paragrafi.forEach((p, i) => {
+    if (i % 2 != 0) {
+        p.classList.add("error");
+    }
+    else {
+        p.classList.add("success");
+    }
+});
+
+
+// 2. Zadatak - Tekst u paragrafima naizmenično pisati veličinom 15px, veličinom 20px i veličinom od 25px.
+
+paragrafi = document.querySelectorAll("p");
+paragrafi.forEach((p, i) => {
+    if (i % 3 == 1) {
+        p.style.fontSize = "15px";
+    }
+    else if (i % 3 == 2) {
+        p.style.fontSize = "20px";
+    }
+    else {
+        p.style.fontSize = "25px";
+    }
+});
+
+
+// 3. Zadatak - Svim paragrafima čiji tekst sadrži reč error, postaviti klasu na error, svim paragrafima čiji tekst sadrži reč success, postaviti klasu na success. Ostale klase paragrafa ne modifikovati.
+//  if(p.textContent.includes(’success’))
+
+paragrafi = document.getElementsByTagName("p");
+paragrafiNiz = Array.from(paragrafi);
+paragrafiNiz.forEach(p => {
+    if (p.textContent.includes("error")) {
+        p.classList.add("error");
+    }
+    else if (p.textContent.includes("success")) {
+        p.classList.add("success");
+    }
+});
+console.log(paragrafi);
+
+
+// 4. Zadatak - Svim paragrafima koji imaju klasu error skloniti tu klasu, a svim paragrafima koji nemaju klasu error dodati tu klasu.
+
+paragrafiNiz.forEach(p => {
+    p.classList.toggle("error");
+});
+console.log(paragrafiNiz);
