@@ -212,3 +212,45 @@ let razbija = arr => {
 };
 
 razbija(studenti);
+
+
+// 9. Student je “aljkav” ako nijedan ispit nije položio sa ocenom većom od 7. Funkciji se prosleđuje niz studenata, a ona prebrojava sve aljkave studente.
+
+let aljkavi = arr => {
+    let aljkav = 0;
+    arr.forEach(s => {
+        let veceOd7 = 0;
+        s.marks.forEach(m => {
+            if (m > 7) {
+                veceOd7++;
+            }
+        });
+        if (veceOd7 == 0) {
+            aljkav++;
+        }
+    });
+    return aljkav;
+};
+
+console.log(aljkavi(studenti));
+
+
+// 10. Student se “bruka” ako nije student prve godine, a broj položenih ispita je manji od broja 3 * (godina_studija - 1), i pri tome nijedna ocena nije veća od 7. Funkciji se prosleđuje niz studenata, a ona prebrojava sve studente koji se brukaju.
+
+let brukaju = arr => {
+    let bruka = 0;
+    arr.forEach(s => {
+        let veciOd7 = 0;
+        s.marks.forEach(m => {
+            if (m > 7) {
+                veciOd7++;
+            }
+        });
+        if (s.year > 1 && veciOd7 == 0 && s.marks.length < 3 * (s.year - 1)) {
+            bruka++
+        }
+    });
+    return bruka;
+};
+
+console.log(brukaju(studenti));
