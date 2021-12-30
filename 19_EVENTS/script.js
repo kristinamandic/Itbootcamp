@@ -68,3 +68,39 @@ btnHello.addEventListener("click", () => {
     let inputImeValue = inputIme.value;
     pHelloIspis.innerHTML = `Hello ${inputImeValue}`;
 });
+
+
+//////////////////////////////////////////////
+
+// DOM
+
+let inputGodinaRodjenja = document.getElementById("godRodj");
+let inputPol = document.querySelectorAll("input[name='pol']");
+let btnPosalji = document.getElementById("posalji");
+let pIspis = document.getElementById("ispis");
+
+btnPosalji.addEventListener("click", (e) => {  // e - event - veliki broj parametara nosi sa sobom
+    e.preventDefault();  // da se stranica ne bi reloadovala
+    let datum = new Date();
+    let tekucaGodina = datum.getFullYear();
+    let inputGodinaRodjenjaValue = inputGodinaRodjenja.value;
+    // parsiranje vrijednosti promjenljive u broj
+    inputGodinaRodjenjaValue = parseInt(inputGodinaRodjenjaValue)
+
+    let god = tekucaGodina - inputGodinaRodjenjaValue;
+    pIspis.innerHTML = `Korisnik ima ${god} godina`
+
+
+    let checkedPol = document.querySelector("input[name='pol']:checked"); // vraca HTML tag onog input polja na koje je kliknuto, znaci cijelo input polje sa id-jem, name-om i value-om
+    let checkedPolValue = checkedPol.value; // vraca vrijednost iz selektovanog HTML taga
+
+    if (checkedPolValue == "z") {
+        pIspis.innerHTML += " i zenskog je pola";
+    }
+    else if (checkedPolValue == "m") {
+        pIspis.innerHTML += " i muskog je pola";
+    }
+    else {
+        pIspis.innerHTML += " i nije se opredjelio za pol";
+    }
+});
