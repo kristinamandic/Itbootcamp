@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        img {
+            width: 88px;
+            height: 67px;
+        }
+
+        h2 {
+            color: purple;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <h2>Odaberite cvece:</h2>
+        <input type="number" id="ruze" placeholder="Cena po cvetu je 150 din">
+        <label for="">Ruže</label><br>
+
+        <input type="number" id="ljiljani" placeholder="Cena po cvetu je 120 din">
+        <label for="">Ljiljani</label><br>
+
+        <input type="number" id="gerberi" placeholder="Cena po cvetu je 70 din">
+        <label for="">Gerberi</label><br>
+    </div>
+
+    <div>
+        <h2>Dodatni pokloni:</h2>
+        <input type="checkbox" name="pokloni" value="bom">Bombonjera<br>
+        <input type="checkbox" name="pokloni" value="cok">Čokolada<br>
+        <input type="checkbox" name="pokloni" value="samp">Šampanjac
+    </div>
+
+    <div>
+        <h2>Plaćanje:</h2>
+        <input type="radio" name="placanje" checked value="kes">Keš<br>
+        <input type="radio" name="placanje" value="kartica">Kartica
+    </div>
+
+    <p>
+        <input type="submit" value="Izracunaj" id="izracunaj">
+        <input type="reset" value="Resetuj">
+    </p>
+
+    <p id="ispis">
+
+    </p>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
