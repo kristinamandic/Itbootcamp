@@ -138,3 +138,16 @@ pitanja.forEach((p, i) => {
         fieldset.appendChild(radio)
     });
 });
+let pitanja = [pitanje1, pitanje2, pitanje3, pitanje5, pitanje5];
+
+// let random = 0;
+// let randomNiz = [];
+// let broj = 0;
+// for (let i = 1; i <= 10; i++) {
+//     random = Math.floor(Math.random() * 10) + 1;
+//     randomNiz.push(random);
+// }
+
+pitanja.forEach(p => {
+
+});
