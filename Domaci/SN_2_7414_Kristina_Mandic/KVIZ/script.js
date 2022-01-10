@@ -29,48 +29,37 @@ let pitanje5 = {
 };
 
 let pitanje6 = {
-    pitanje: "Gdje se nalazi najveci hotel na svijetu?",
-    odgovori: ["Malezija", "Sjedinjene Americke Drzave", "Rusija", "Makao"],
-    tacno: 0
+    pitanje: "Koliko soba ima najveci hotel na svijetu?",
+    odgovori: [600, 650, 700, 750, 88],
+    tacno: 3
 };
 
 let pitanje7 = {
-    pitanje: "Gdje se nalazi najveci hotel na svijetu?",
-    odgovori: ["Malezija", "Sjedinjene Americke Drzave", "Rusija", "Makao"],
-    tacno: 0
+    pitanje: "Koja evropska zemlja ima najvise hotela?",
+    odgovori: ["Njemacka", "Italija", "Norveska", "Francuska"],
+    tacno: 3
 };
 
 let pitanje8 = {
-    pitanje: "Gdje se nalazi najveci hotel na svijetu?",
-    odgovori: ["Malezija", "Sjedinjene Americke Drzave", "Rusija", "Makao"],
-    tacno: 0
+    pitanje: "Koja azijska zemlja ima najvise hotela?",
+    odgovori: ["Indija", "Kina", "Singapur", "Japan"],
+    tacno: 1
 };
 
 let pitanje9 = {
-    pitanje: "Gdje se nalazi najveci hotel na svijetu?",
-    odgovori: ["Malezija", "Sjedinjene Americke Drzave", "Rusija", "Makao"],
-    tacno: 0
+    pitanje: "Koliko kosta najskuplja hotelska soba na svijetu, u dolarima?",
+    odgovori: ["80 000", "90 000", "100 000", "110 000", "120 000"],
+    tacno: 2
 };
 
 let pitanje10 = {
-    pitanje: "Gdje se nalazi najveci hotel na svijetu?",
-    odgovori: ["Malezija", "Sjedinjene Americke Drzave", "Rusija", "Makao"],
-    tacno: 0
+    pitanje: "Koliko hotela ima u Srbiji?",
+    odgovori: [500, 600, 700, 800, 900],
+    tacno: 2
 };
 
-let pitanje11 = {
-    pitanje: "Gdje se nalazi najveci hotel na svijetu?",
-    odgovori: ["Malezija", "Sjedinjene Americke Drzave", "Rusija", "Makao"],
-    tacno: 0
-};
 
-let pitanje12 = {
-    pitanje: "Gdje se nalazi najveci hotel na svijetu?",
-    odgovori: ["Malezija", "Sjedinjene Americke Drzave", "Rusija", "Makao"],
-    tacno: 0
-};
-
-let pitanja = [pitanje1, pitanje2, pitanje3, pitanje4, pitanje5, pitanje6, pitanje7, pitanje8, pitanje9, pitanje10, pitanje11, pitanje12];
+let pitanja = [pitanje1, pitanje2, pitanje3, pitanje4, pitanje5, pitanje6, pitanje7, pitanje8, pitanje9, pitanje10];
 
 
 // Generisanje nasumicnih brojeva indeksa
@@ -121,33 +110,70 @@ for (let i = 0; i < pitanja.length; i++) {
 }
 
 /////////////////////////////////
-let h2;
-let fieldset;
-let radio;
+let prviDio = document.createElement("p");
 
-pitanja.forEach((p, i) => {
-    i++;
-    fieldset = document.createElement("fieldset");
-    document.body.appendChild(fieldset);
-    h2 = document.createElement("h4");
-    h2.innerHTML = `${i}. ${p.pitanje}`;
-    fieldset.appendChild(h2)
-    p.odgovori.forEach(o => {
-        radio = document.createElement("input");
-        radio.innerHTML = `${o}`;
-        fieldset.appendChild(radio)
+let broj = 0; // broj koji sluzi za imenovanje odgovora
+let ispisNaStranici = arr => {
+    arr.forEach((p, i) => {
+        broj++;
+        i++;
+        let fieldset = document.createElement("fieldset");
+        prviDio.appendChild(fieldset);
+        let h4 = document.createElement("h4");
+        h4.textContent = `${i}. ${p.pitanje}`;
+        fieldset.appendChild(h4);
+        p.odgovori.forEach((o, i) => {
+            let label = document.createElement("label");
+            fieldset.appendChild(label);
+            let radio = document.createElement("input");
+            radio.setAttribute("type", "radio");
+            radio.setAttribute("name", `${broj}`);
+            label.appendChild(radio);
+            label.innerHTML += `${o}`;
+            let br = document.createElement("br");
+            fieldset.appendChild(br);
+        });
     });
-});
-let pitanja = [pitanje1, pitanje2, pitanje3, pitanje5, pitanje5];
+}
+document.body.appendChild(prviDio);
+ispisNaStranici(a);
 
-// let random = 0;
-// let randomNiz = [];
-// let broj = 0;
-// for (let i = 1; i <= 10; i++) {
-//     random = Math.floor(Math.random() * 10) + 1;
-//     randomNiz.push(random);
-// }
+// Ispis 
+let drugiDio = document.createElement("p");
+let novaPitanja = document.createElement("input");
+novaPitanja.setAttribute("type", "reset");
+novaPitanja.setAttribute("value", "Nova pitanja");
+drugiDio.appendChild(novaPitanja);
 
-pitanja.forEach(p => {
+let posalji = document.createElement("input");
+posalji.setAttribute("type", "submit");
+posalji.setAttribute("value", "Posalji")
+drugiDio.appendChild(posalji);
 
+document.body.appendChild(drugiDio);
+
+// Kada kliknemo posalji
+let treciDio = document.createElement("p");
+document.body.appendChild(treciDio);
+
+posalji.addEventListener("click", (e) => {
+    e.preventDefault();
+    let broj = 0;
+    pitanja.forEach(p => {
+        broj++;
+        let brojIndexa = 0;
+        let checkedOdgovor = document.querySelector(`input[name='${broj}']:checked`);
+        console.log(checkedOdgovor);
+        // p.odgovori.forEach(o => {
+        //     if (checkedOdgovor != null) {
+        //         brojIndexa++;
+        //         console.log(checkedOdgovor);
+        //     }
+        // });
+        // console.log(brojIndexa);
+
+        // console.log(checkedPitanje);
+        // checkedPitanjeIndex = checkedPitanje.index();
+        // console.log(checkedPitanjeIndex);
+    });
 });
