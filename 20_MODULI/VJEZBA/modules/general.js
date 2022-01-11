@@ -5,5 +5,7 @@ let generateImage = (src) => {
     return img;
 };
 
-
-export { generateImage };
+// export { generateImage };
+// Export default exportuje jednu stavku i nisu mu potrebne viticaste zagrade:
+// U modulu u koji se importuje, stavlja se samo import bez viticastih zagrada (pogledati list.js i table.js)
+export default generateImage;
