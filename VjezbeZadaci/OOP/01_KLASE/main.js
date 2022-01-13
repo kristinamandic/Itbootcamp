@@ -6,6 +6,7 @@ import * as FMradio from "./modules/05_fmradio.js";
 import { Krug, upisaniKrug, rastuci } from "./modules/06_krug.js";
 import { Cipela, radi, najvisePrepravki, brojPrepravki } from "./modules/07_cipela.js";
 import { Student, imePrezime, srednjaOcjena, osrednji, najmanjaOcjenaNajboljeg, najmanjaOcjena, najcescaOcjena, rodjeniGodine } from "./modules/08_student.js";
+import { Plivac, topTen, norma, normaNajmladji } from "./modules/09_plivac.js";
 
 // 1. BOJA
 console.log("..................................BOJA..................................");
@@ -208,3 +209,34 @@ console.log(najmanjaOcjena(studenti));
 console.log(najcescaOcjena(studenti));
 
 rodjeniGodine(studenti, 1997);
+
+
+//////////////////////////////////////////////////////
+// 6. PLIVAC
+console.log("..................................PLIVAC..................................");
+
+let plivac1 = new Plivac("Marko", 1997, 30);
+let plivac2 = new Plivac("Nikola", 1987, 28);
+let plivac3 = new Plivac("Nebojsa", 2000, 31);
+let plivac4 = new Plivac("Stefan", 1999, 42);
+let plivac5 = new Plivac("Srdjan", 1989, 35);
+let plivac6 = new Plivac("Dusan", 2001, 22);
+let plivac7 = new Plivac("Djordje", 1997, 27);
+let plivac8 = new Plivac("Marko", 1998, 32);
+let plivac9 = new Plivac("Konstantin", 1988, 34);
+let plivac10 = new Plivac("Pavle", 1998, 29);
+let plivac11 = new Plivac("Miljan", 2000, 40);
+let plivac12 = new Plivac("Nikola", 2001, 36);
+console.log(plivac1);
+console.log(plivac2.ime);
+console.log(plivac3.godinaRodjenja);
+console.log(plivac4.najboljiRezultat);
+
+plivac5.ispisi();
+
+let plivaci = [plivac1, plivac2, plivac3, plivac4, plivac5, plivac6, plivac7, plivac8, plivac9, plivac10, plivac11, plivac12];
+console.log(plivaci);
+
+console.log(norma(plivaci, 30));
+
+normaNajmladji(plivaci);

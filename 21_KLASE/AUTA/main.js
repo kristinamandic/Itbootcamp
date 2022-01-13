@@ -4,7 +4,7 @@
 // let niz1 = [1, 2, 3];
 // let niz2 = new Array {1, 2, 3};
 
-import Auto from "./moduls/auto.js";
+import Auto from "./auto.js";
 
 // Pravljenje objekata preko klase Auto
 let a1 = new Auto("Citroen C4", "crna", false);
