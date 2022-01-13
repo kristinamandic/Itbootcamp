@@ -1,11 +1,23 @@
 class Film {
-    constructor(n, r, gi) {
+    constructor(n, r, gi, o) {
         this.naslov = n;
         this.reziser = r;
         this.godinaIzdanja = gi;
+        this.ocjene = o;
     }
     stampaj() {
         console.log(this.naslov);
+    }
+    // DODAVANJE JEDNE OCJENE 
+    dodajOcjenu(novaOcjena) {
+        this._ocjene.push(novaOcjena);
+    }
+    prosjek() {
+        let zbir = 0;
+        this.ocjene.forEach(o => {
+            zbir += o;
+        });
+        return zbir / this.ocjene.length;
     }
 
     set naslov(n) {
@@ -34,6 +46,13 @@ class Film {
     }
     get godinaIzdanja() {
         return this._godinaIzdranja;
+    }
+
+    set ocjene(o) {
+        this._ocjene = o;
+    }
+    get ocjene() {
+        return this._ocjene;
     }
 }
 
