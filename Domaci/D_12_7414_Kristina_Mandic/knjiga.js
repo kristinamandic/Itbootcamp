@@ -1,5 +1,5 @@
 class Knjiga {
-    constuctor(n, a, gi, bs, c) {
+    constructor(n, a, gi, bs, c) {
         this.naslov = n;
         this.autor = a;
         this.godinaIzdanja = gi;
@@ -86,15 +86,25 @@ class Knjiga {
 
 // FUNKCIJE
 let ukupnaCijena = arr => {
-
+    let zbir = 0;
+    arr.forEach(k => {
+        zbir += k.cijena;
+    });
+    return zbir;
 };
 
 let prosjecnaCijena = arr => {
-
+    let ukupnaCijenaKnjiga = ukupnaCijena(arr);
+    return ukupnaCijenaKnjiga / arr.length;
 };
 
 let prosjecnaStranica = arr => {
-
+    let ukupnaCijenaKnjiga = ukupnaCijena(arr);
+    let brojStranaKnjiga = 0;
+    arr.forEach(k => {
+        brojStranaKnjiga += k.brojStrana;
+    });
+    return ukupnaCijenaKnjiga / brojStranaKnjiga;
 };
 
 export { Knjiga, ukupnaCijena, prosjecnaCijena, prosjecnaStranica };
