@@ -1,7 +1,7 @@
 let pitanje1 = {
     pitanje: "Koji je najveci hotelski lanac na svijetu?",
     odgovori: ["InterContinental Hotels Group", "Marriott International", "Hyatt Hotels Corporation", "Jin Jiang"],
-    tacno: 0
+    tacno: 1
 };
 
 let pitanje2 = {
@@ -30,7 +30,7 @@ let pitanje5 = {
 
 let pitanje6 = {
     pitanje: "Koliko soba ima najveci hotel na svijetu?",
-    odgovori: [600, 650, 700, 750, 88],
+    odgovori: [600, 650, 700, 750, 800],
     tacno: 3
 };
 
@@ -110,17 +110,17 @@ for (let i = 0; i < pitanja.length; i++) {
 }
 
 /////////////////////////////////
+// Postavka pitanja
 let prviDio = document.createElement("p");
 
 let broj = 0; // broj koji sluzi za imenovanje odgovora
 let ispisNaStranici = arr => {
     arr.forEach((p, i) => {
         broj++;
-        i++;
         let fieldset = document.createElement("fieldset");
         prviDio.appendChild(fieldset);
         let h4 = document.createElement("h4");
-        h4.textContent = `${i}. ${p.pitanje}`;
+        h4.textContent = `${i + 1}. ${p.pitanje}`;
         fieldset.appendChild(h4);
         p.odgovori.forEach((o, i) => {
             let label = document.createElement("label");
@@ -128,17 +128,31 @@ let ispisNaStranici = arr => {
             let radio = document.createElement("input");
             radio.setAttribute("type", "radio");
             radio.setAttribute("name", `${broj}`);
+            radio.setAttribute("value", `${o}`);
+            if (p.tacno == i) {
+                radio.classList.add("tacno");
+            }
+            if (i == 0) {
+                radio.classList.add("prviOdgovor");
+            }
             label.appendChild(radio);
             label.innerHTML += `${o}`;
             let br = document.createElement("br");
             fieldset.appendChild(br);
         });
+        // Checkirati prve odgovore
+        let checked = document.getElementsByClassName("prviOdgovor");
+        for (let i = 0; i < checked.length; i++) {
+            checked[i].checked = true;
+        }
     });
 }
 document.body.appendChild(prviDio);
 ispisNaStranici(a);
+// let prviKrug = ispisNaStranici(a);
+// prviDio.innerHTML += `${prviKrug}`;
 
-// Ispis 
+// Dugmici
 let drugiDio = document.createElement("p");
 let novaPitanja = document.createElement("input");
 novaPitanja.setAttribute("type", "reset");
@@ -150,30 +164,55 @@ posalji.setAttribute("type", "submit");
 posalji.setAttribute("value", "Posalji")
 drugiDio.appendChild(posalji);
 
+let ponoviTest = document.createElement("input");
+ponoviTest.setAttribute("type", "reset");
+ponoviTest.setAttribute("value", "Ponovi Test");
+drugiDio.appendChild(ponoviTest);
+
 document.body.appendChild(drugiDio);
 
 // Kada kliknemo posalji
 let treciDio = document.createElement("p");
 document.body.appendChild(treciDio);
+let tacniOdg = document.getElementsByClassName("tacno");
 
+// Onesposobljavanje ponovnog odgovaranja
+let zaustavi = () => {
+    let inputPolja = document.querySelectorAll("label input");
+    let inputPolja1 = Array.from(inputPolja);
+    inputPolja1.forEach(i => {
+        i.disabled = true;
+    });
+};
+
+posalji.innerHTML = ``;
 posalji.addEventListener("click", (e) => {
     e.preventDefault();
-    let broj = 0;
-    pitanja.forEach(p => {
-        broj++;
-        let brojIndexa = 0;
-        let checkedOdgovor = document.querySelector(`input[name='${broj}']:checked`);
-        console.log(checkedOdgovor);
-        // p.odgovori.forEach(o => {
-        //     if (checkedOdgovor != null) {
-        //         brojIndexa++;
-        //         console.log(checkedOdgovor);
-        //     }
-        // });
-        // console.log(brojIndexa);
+    zaustavi();
+    posalji.disabled = true;
+    for (let i = 0; i < tacniOdg.length; i++) {
+        if (tacniOdg[i].checked == true) {
+            treciDio.innerHTML += `<p style="color:green">Tacno ste odgovorili na ${i + 1}. pitanje`;
+        }
+        else {
+            treciDio.innerHTML += `<p style="color:red">Niste tacno odgovorili na ${i + 1}. pitanje`;
+        }
+    }
+});
 
-        // console.log(checkedPitanje);
-        // checkedPitanjeIndex = checkedPitanje.index();
-        // console.log(checkedPitanjeIndex);
-    });
+// Dugme Nova pitanja
+novaPitanja.addEventListener("click", (e) => {
+    posalji.disabled = false;
+    treciDio.innerHTML = ``;
+    e.preventDefault();
+    novaPitanja.disabled = true;
+    prviDio.innerHTML = ``; // ciscenje stranice, odn. otklanjanje prvih 5 pitanja, kako bih u sljedecoj liniji stavila drugih 5
+    ispisNaStranici(b);
+    // Nakon klika na ovo dugme, kada se ponovo klikne nista se nece desiti jer je izlistao pitanja do kraja
+});
+
+// Ponovi test, odn. restartuj stranicu - ponovna randomizacija pitanja
+ponoviTest.addEventListener("click", (e) => {
+    e.preventDefault;
+    location.reload();
 });

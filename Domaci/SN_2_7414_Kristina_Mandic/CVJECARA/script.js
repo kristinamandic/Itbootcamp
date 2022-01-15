@@ -5,8 +5,10 @@ let inputLjiljani = document.getElementById("ljiljani");
 let inputGerberi = document.getElementById("gerberi");
 let inputPokloni = document.querySelectorAll("input[name='pokloni']");
 let inputPlacanje = document.querySelectorAll("input[name='placanje']");
+let btnReset = document.getElementById("reset");
 
 btnIzracunaj.addEventListener("click", () => {
+    pIspis.innerHTML = ``;
     pIspis.innerHTML += `<h2>Vaša porudžbina:</h2>`;
 
     // Ruze
@@ -67,4 +69,9 @@ btnIzracunaj.addEventListener("click", () => {
         pIspis.innerHTML += `<p>Cijena bez popusta je: ${ukupnoDin}</p>`
         pIspis.innerHTML += `<h3>Cijena sa popustom je: ${ukupnoSaPopustom}</h3>`
     }
+});
+
+btnReset.addEventListener("click", (e) => {
+    e.preventDefault();
+    location.reload();
 });
