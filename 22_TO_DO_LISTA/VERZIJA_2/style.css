@@ -1,0 +1,43 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+h2{
+    color: palevioletred;
+    padding: 10px 5px;
+}
+
+ul li{
+    margin: 5px ;
+    list-style-type: none;
+    padding: 5px;
+    border: palevioletred 2px double;
+    display: block;
+    background-color: rgb(255, 212, 226);
+    width: 180px;
+}
+
+ul li:hover{
+    background-color: rgb(243, 155, 184);
+}
+
+#unesi{
+    padding: 0;
+    margin: 10px 5px;
+    width: 180px;
+}
+
+/* #dodaj{
+    background-color: palevioletred;
+    width: 180px;
+    padding: 5px;
+    margin: 0 5px;
+    display: block;
+} */
+
+#pocetak, #kraj{
+    padding: 5px;
+    margin: 5px;
+}
