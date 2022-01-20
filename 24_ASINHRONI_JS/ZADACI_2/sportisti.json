@@ -1,0 +1,27 @@
+[
+    {
+        "imePrezime": "Marko Markovic",
+        "visina": 180,
+        "timovi": [
+            "Partizan",
+            "Crvena Zvezda",
+            "Lakers"
+        ]
+    },
+    {
+        "imePrezime": "Stefan Stefanovic",
+        "visina": 190,
+        "timovi": [
+            "Partizan",
+            "Lakers"
+        ]
+    },
+    {
+        "imePrezime": "Bogdan Bogdanovic",
+        "visina": 201,
+        "timovi": [
+            "Ajaks",
+            "Crvena Zvezda"
+        ]
+    }
+]
