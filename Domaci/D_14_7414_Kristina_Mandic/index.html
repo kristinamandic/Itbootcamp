@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyARdElKEabw4vvrja2YyxftcKZPa6TXCYY",
+            authDomain: "itbootcamp-js7-bdeab.firebaseapp.com",
+            projectId: "itbootcamp-js7-bdeab",
+            storageBucket: "itbootcamp-js7-bdeab.appspot.com",
+            messagingSenderId: "4918904960",
+            appId: "1:4918904960:web:a4ef4cdf088968bfcd3e65",
+            measurementId: "G-CVWVFJQQP9"
+        };
+        firebase.initializeApp(firebaseConfig);
+        let db = firebase.firestore();
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
