@@ -136,3 +136,30 @@ db.collection("costumers")
 
 
 console.log("Test poruka");
+
+
+////////////////////////////////////////////////
+// Drugi nacin za dodavanje dokumenata
+// Ne mozemo dodati ID dokumenta i zbog toga nije prakticno, svaki put kada refreshujemo tranicu dodace se isti takav dokument da drugim random generisanim ID-jem
+db.collection("tasks")
+    .add({
+        title: "Vjezba za projekat",
+        description: "Vjezbanje JS",
+        start_date: firebase.firestore.Timestamp.fromDate(new Date("2022-01-29")),
+        due_date: null,
+        priority: true
+    })
+    .then(() => {
+        console.log("Uspjesno dodat zadatak u kolekciju tasks");
+    })
+    .catch(err => {
+        console.log(("Desila se greska: " + err));
+    });
+
+/*
+db.collection("...").add()  <=>  db.collection("...").doc().set()
+    - dodaje novi dokument sa random generisanim ID-jem
+
+db.collection("...").doc(id).set()
+    - dodaje novi dokument sa zadatim ID-jem
+*/
