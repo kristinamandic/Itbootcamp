@@ -41,6 +41,22 @@ class Chatroom {
         let response = await this.chats.add(obj);
         return response; // Vracam Promise i mogu za njega da kazem .then() i .catch()
     }
+
+    // Metod koji prati promjene u bazi i vraca poruke
+    getChats(callback) {
+        // Stavljamo osluskivac "onSnapshot" na nasu kolekciju "chats" iz baze podataka
+        // "onSnapshot" daje sve promjene do tog trenutka
+        this.chats.onSnapshot(snapshot => {
+            // "snapshot" daje niz tih promjena
+            snapshot.docChanges().forEach(change => {
+                // Ispisati dokumente koji su dodati u bazu
+                if (change.type == "added") {
+                    // console.log(change.doc.data());
+                    callback(change.doc.data()); // prosljedjivanje dokumenta na ispis (ispis realizujemo kada realizujemo callback funkciju)
+                }
+            });
+        });
+    }
 }
 
 export default Chatroom;

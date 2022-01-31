@@ -11,6 +11,10 @@ console.log(chatroom1);
 //     .catch(err => console.log("Doslo je do greske: " + err));
 
 let chatroom2 = new Chatroom("homeworks", "Jelena");
-chatroom2.addChat("Podsjetnik da uradite domaci")
-    .then(() => console.log("Uspjesno dodat cet!"))
-    .catch(err => console.log("Doslo je do greske: " + err));
+// chatroom2.addChat("Podsjetnik da uradite domaci")
+//     .then(() => console.log("Uspjesno dodat cet!"))
+//     .catch(err => console.log("Doslo je do greske: " + err));
+
+chatroom2.getChats(d => {
+    console.log(d);
+});
