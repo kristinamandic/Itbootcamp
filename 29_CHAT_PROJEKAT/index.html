@@ -45,6 +45,26 @@
         <input type="submit" value="Update">
     </form>
 
+    <!-- Povezivanje sa Firebase-om -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-firestore.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyCLpxYabwthi80F3_EVpX3ZNwXC3mZ65_A",
+            authDomain: "chat-projekat-73f61.firebaseapp.com",
+            projectId: "chat-projekat-73f61",
+            storageBucket: "chat-projekat-73f61.appspot.com",
+            messagingSenderId: "276453346177",
+            appId: "1:276453346177:web:c13dbd6efb5f0365257680",
+            measurementId: "G-NST2PTF5RY"
+        };
+        firebase.initializeApp(firebaseConfig);
+        let db = firebase.firestore();
+    </script>
+
+    <!-- Povezivanje na script -->
+    <script src="script.js"></script>
 </body>
 
 </html>
