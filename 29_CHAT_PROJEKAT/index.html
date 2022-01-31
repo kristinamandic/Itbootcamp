@@ -11,38 +11,38 @@
 
 <body>
     <!-- Naslov ceta -->
-    <header>
-        <h2>ITBootcamp Chat</h2>
-        <h4>Choose a classroom</h4>
+    <header class="row">
+        <h1 class="col-12">ITBootcamp Chat</h1>
+        <h3 class="col-12">Choose a chatroom</h3>
     </header>
 
     <!-- Meni za sobe -->
-    <div id="meni">
+    <nav id="meni" class="row">
         <ul>
-            <li><a href="#">#general</a></li>
-            <li><a href="#">#js</a></li>
-            <li><a href="#">#homeworks</a></li>
-            <li><a href="#">#tests</a></li>
+            <li class="col-3"><a href="#">#general</a></li>
+            <li class="col-3"><a href="#">#js</a></li>
+            <li class="col-3"><a href="#">#homeworks</a></li>
+            <li class="col-3"><a href="#">#tests</a></li>
         </ul>
-    </div>
+    </nav>
 
     <!-- Prostor za poruke -->
-    <section>
-        <ul>
+    <section class="row">
+        <ul class="col-12">
 
         </ul>
     </section>
 
     <!-- Forma za unos poruke -->
-    <form>
-        <input type="text" name="send" id="send" placeholder="Your message...">
-        <input type="submit" value="Send">
+    <form id="formSend" class="row">
+        <input class="col-8" type="text" name="send" id="send" placeholder="Your message...">
+        <input class="col-4" type="submit" value="Send">
     </form>
 
     <!-- Forma za promjenu korisnickog imena -->
-    <form>
-        <input type="text" name="update" id="update" placeholder="Update username">
-        <input type="submit" value="Update">
+    <form id="formUpdate" class="row">
+        <input class="col-8" type="text" name="update" id="update" placeholder="Update username">
+        <input class="col-4" type="submit" value="Update">
     </form>
 
     <!-- Povezivanje sa Firebase-om -->

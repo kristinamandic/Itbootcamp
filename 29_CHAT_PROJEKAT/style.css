@@ -1,24 +1,168 @@
-/* *{
+*{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-} */
+}
 
+.row {
+    width: 100%;
+    overflow: hidden;
+}
+
+[class*="col-"]{
+    float: left;
+}
+
+@media only screen and (max-width:600px){
+    [class*="col-"]{
+        width: 100%;
+    }
+    #meni ul{
+        /* flex-direction: column; */
+        align-items: center; 
+        flex-wrap: wrap;
+    }
+    /* form{
+        align-items: center;
+    }   */
+}
+
+@media only screen and (min-width:601px){
+    .col-1 {
+        width: 8.33%;
+    }
+
+    .col-2 {
+        width: 16.66%;
+    }
+
+    .col-3 {
+        width: 25%;
+    }
+
+    .col-4 {
+        width: 33.33%;
+    }
+
+    .col-5 {
+        width: 41.66%;
+    }
+
+    .col-6 {
+        width: 50%;
+    }
+
+    .col-7 {
+        width: 58.33%;
+    }
+
+    .col-8 {
+        width: 66.66%;
+    }
+
+    .col-9 {
+        width: 75%;
+    }
+
+    .col-10 {
+        width: 83.33%;
+    }
+
+    .col-11 {
+        width: 91.66%;
+    }
+
+    .col-12 {
+        width: 100%;
+    }
+}
+
+body{
+    margin: 2% 10%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url(slike/work_desk.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover ;
+    height: 100vh;
+}
+
+/* HEADER */
 header{
-    color: purple;
+    color: #bc6c25;
     font-weight: bold;
     text-align: center;
     margin: 20px;
+    text-shadow:1px 1px rgb(53, 52, 52);
 }
 
-#meni{
+h3{
+    letter-spacing: 2px;
+}
+
+/* CHATROOMS */
+#meni ul{
     display: flex;
-    width: 100%;
+    background-color: whitesmoke;
+    border-radius: 12px;
+    padding: 5px;
 }
 
-ul li{
+#meni ul li{
     list-style-type: none;
-    display: inline;
-    width: 24%;
     text-align: center;
+    border-radius: 12px;
+    background-color: #606c38;
+    padding: 5px;
+    margin: 1%;
+}
+
+#meni ul li a{
+    display: block;
+    text-decoration: none;
+    color: #FEFAE0;
+    text-shadow: 2px 2px #283618;
+}
+
+ul li:focus{
+    background-color: #283618;
+}
+
+/* INPUTI */
+form{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+input{
+    width: 400px;
+    height: 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    align-items: center;
+    border: #283618 1px solid;
+    color: #283618;
+    margin: 2px;
+}
+
+input[type="text"]{
+    width: 70%;
+    /* background-color: #f7f5e8; */
+}
+
+input[type="submit"]{
+    background-color: #DDA15E;
+    width: 100px;
+}
+
+input:focus{
+    border: 3px #283618 solid;
+}
+
+/* PORUKE */
+section ul{
+    background-color: rgba(255, 255, 255, 0.87);
+    height: 400px;
+    margin: 2% 0;
+    border-radius: 12px;
 }
