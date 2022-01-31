@@ -24,6 +24,23 @@ class Chatroom {
     get username() {
         return this._username;
     }
+
+    // Metod za dodavanje nove poruke
+    async addChat(mess) {
+        // Dohvatanje trenutnog vremena potrebnog za timestamp(created_at polje u dokumentu)
+        let date = new Date();
+
+        // Kreiranje dokumenta/objekta koji prosljedjuejmo bazi podataka
+        let obj = {
+            message: mess,
+            username: this.username,
+            room: this.room,
+            created_at: firebase.firestore.Timestamp.fromDate(date)
+        };
+        // Da sacuvam dokument u db
+        let response = await this.chats.add(obj);
+        return response; // Vracam Promise i mogu za njega da kazem .then() i .catch()
+    }
 }
 
 export default Chatroom;
