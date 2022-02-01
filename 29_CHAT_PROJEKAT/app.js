@@ -17,11 +17,19 @@ let chatroom2 = new Chatroom("homeworks", "Jelena");
 //     .then(() => console.log("Uspjesno dodat cet!"))
 //     .catch(err => console.log("Doslo je do greske: " + err));
 
+
+// Ispis dokumenata db u konzoli
 chatroom2.getChats(d => {
     console.log(d);
 });
 
 ///////////////////////////////////////////
 let ul = document.querySelector("#poruke");
-let c = new ChatUI(ul);
-console.log(c.element);
+let chatUI1 = new ChatUI(ul);
+console.log(chatUI1.element);
+
+
+// Ispis dokumenata iz db na stranici
+chatroom2.getChats(d => {
+    chatUI1.templateLI(d);
+});
