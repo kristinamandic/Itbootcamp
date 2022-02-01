@@ -1,7 +1,17 @@
+/* GENERAL */
 *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+}
+
+body{
+    margin: 2% 15%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url(images/work_desk2.jpg) ;
+    background-repeat: no-repeat;
+    background-size: cover ;
+    height: 100vh;
 }
 
 .row {
@@ -9,10 +19,8 @@
     overflow: hidden;
 }
 
-[class*="col-"]{
-    float: left;
-}
 
+/* RESPONSIVE */
 @media only screen and (max-width:600px){
     [class*="col-"]{
         width: 100%;
@@ -72,14 +80,6 @@
     }
 }
 
-body{
-    margin: 2% 15%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: url(images/work_desk.jpg) ;
-    background-repeat: no-repeat;
-    background-size: cover ;
-    height: 100vh;
-}
 
 /* HEADER */
 header{
@@ -91,23 +91,21 @@ header{
 }
 
 h1 span{
-    color: whitesmoke;
+    color: white;
     background-color: #bc6c25 ;
     padding: 0 7px;
-    margin: 2px;
     text-shadow: none;
 }
 
 h3{
     letter-spacing: 2px;
     color: #bc6c25;
-    margin-top: 5px;
 }
 
 /* CHATROOMS */
 #menu ul{
     display: flex;
-    background-color: whitesmoke;
+    background-color: white;
     border-radius: 12px;
     padding: 5px;
 }
@@ -117,34 +115,31 @@ h3{
     text-align: center;
     border-radius: 12px;
     background-color: #606c38;
-    padding: 5px;
+    padding: 5px 0;
     margin: 1%;
+    border: white 5px double;
 }
 
 #menu ul li a{
     display: block;
     text-decoration: none;
-    color: #FEFAE0;
+    color: white;
     text-shadow: 2px 2px #283618;
 }
 
-ul li:focus{
-    background-color: #283618;
-}
 
-/* INPUTI */
+/* FORME = INPUTI */
 form{
     display: flex;
     justify-content: center;
     margin-bottom: 5px;
+    padding: 5px;
 }
 
 input{
-    width: 400px;
     height: 30px;
     font-size: 18px;
     border-radius: 5px;
-    align-items: center;
     border: #283618 1px solid;
     color: #283618;
     margin: 2px;
@@ -152,27 +147,35 @@ input{
 
 input[type="text"]{
     width: 70%;
-    /* background-color: #f7f5e8; */
 }
 
 input[type="submit"]{
     background-color: #DDA15E;
     width: 100px;
+    cursor: pointer;
+    box-shadow: 2px 4px rgb(124, 124, 124);
 }
 
-input:focus{
-    border: 3px #283618 solid;
+input[type="submit"]:hover{
+    background-color: #df8b42;
 }
+
+input[type="submit"]:active{
+    background-color: #df8b42;
+    box-shadow: 1px 2px #666;
+    transform: translateY(2px);
+}
+
 
 /* PORUKE */
 section{
     height: 55%;
     margin: 2% 0;
     border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.692);
 }
 
 section ul{
-    background-color: rgba(255, 255, 255, 0.87);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -184,22 +187,23 @@ section ul{
 section ul li{
     background-color:#8fac71;
     color: #283618;
-    border-radius: 0 10px 10px 10px;
-    padding: 10px;
+    border-radius: 0 12px 12px 12px;
+    padding: 12px;
     list-style-type: none;
     width: fit-content;
+    max-width: 70%;
+    word-wrap: break-word;
     margin: 1%;
-    box-shadow: 2px 2px 2px #283618;
+    box-shadow: 2px 2px 7px #283618;
 }
 
 section ul li .time_stamp{
     font-size: 12px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #6f794e;
 }
 
 section ul li span{
     font-weight: bold;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 14px;
 }
