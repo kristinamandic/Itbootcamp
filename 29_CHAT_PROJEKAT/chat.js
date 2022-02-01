@@ -14,8 +14,9 @@ class Chatroom {
 
     // Seter i geter za polje _username
     set username(u) {
-        if (u.length >= 2 && u.length <= 10) {
-            this._username = u;
+        let u1 = u.trim();
+        if (u1.length >= 2 && u1.length <= 10) {
+            this._username = u1;
         }
         else {
             alert("Korisnicko ime mora da se sastoji od 2 do 10 karaktera i ne smije da ima praznine!")
@@ -46,16 +47,19 @@ class Chatroom {
     getChats(callback) {
         // Stavljamo osluskivac "onSnapshot" na nasu kolekciju "chats" iz baze podataka
         // "onSnapshot" daje sve promjene do tog trenutka
-        this.chats.onSnapshot(snapshot => {
-            // "snapshot" daje niz tih promjena
-            snapshot.docChanges().forEach(change => {
-                // Ispisati dokumente koji su dodati u bazu
-                if (change.type == "added") {
-                    // console.log(change.doc.data());
-                    callback(change.doc.data()); // prosljedjivanje dokumenta na ispis (ispis realizujemo kada realizujemo callback funkciju)
-                }
+        this.chats
+            .where("room", "==", this.room)
+            .orderBy("created_at")
+            .onSnapshot(snapshot => {
+                // "snapshot" daje niz tih promjena
+                snapshot.docChanges().forEach(change => {
+                    // Ispisati dokumente koji su dodati u bazu
+                    if (change.type == "added") {
+                        // console.log(change.doc.data());
+                        callback(change.doc.data()); // prosljedjivanje dokumenta na ispis (ispis realizujemo kada realizujemo callback funkciju)
+                    }
+                });
             });
-        });
     }
 }
 
