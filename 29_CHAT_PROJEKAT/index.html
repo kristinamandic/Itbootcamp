@@ -28,24 +28,27 @@
         </ul>
     </nav>
 
-    <!-- Prostor za poruke -->
-    <section class="row">
-        <ul class="col-12" id="poruke">
+    <div id="background">
+        <!-- Prostor za poruke -->
+        <section class="row">
+            <ul class="col-12" id="poruke">
 
-        </ul>
-    </section>
+            </ul>
+        </section>
 
-    <!-- Forma za unos poruke -->
-    <form id="formSend" class="row">
-        <input class="col-8" type="text" name="message" id="message" placeholder="Your message...">
-        <input class="col-4" type="submit" value="Send" id="send">
-    </form>
 
-    <!-- Forma za promjenu korisnickog imena -->
-    <form id="formUpdate" class="row">
-        <input class="col-8" type="text" name="username" id="username" placeholder="Update username">
-        <input class="col-4" type="submit" value="Update" id="update">
-    </form>
+        <!-- Forma za unos poruke -->
+        <form id="formSend" class="row">
+            <input class="col-8" type="text" name="message" id="message" placeholder="Your message...">
+            <input class="col-4" type="submit" value="Send" id="send">
+        </form>
+
+        <!-- Forma za promjenu korisnickog imena -->
+        <form id="formUpdate" class="row">
+            <input class="col-8" type="text" name="username" id="username" placeholder="Update username">
+            <input class="col-4" type="submit" value="Update" id="update">
+        </form>
+    </div>
 
     <!-- Povezivanje sa Firebase-om -->
     <script src="https://www.gstatic.com/firebasejs/8.6.7/firebase-app.js"></script>

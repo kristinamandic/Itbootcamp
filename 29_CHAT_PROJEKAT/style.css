@@ -117,7 +117,12 @@ h3{
     background-color: #606c38;
     padding: 5px 0;
     margin: 1%;
-    border: white 5px double;
+    border: white 3px groove;
+}
+
+#menu ul li:hover{
+    border: none;
+    /* background-color: #515837; */
 }
 
 #menu ul li a{
@@ -129,10 +134,19 @@ h3{
 
 
 /* FORME = INPUTI */
+#background{
+    background-color: rgba(177, 174, 174, 0.692);
+    border-radius: 5px;
+    padding: 2%;
+    height: 70%;
+    margin: 2% 0;
+    border-radius: 10px;
+}
+
 form{
     display: flex;
     justify-content: center;
-    margin-bottom: 5px;
+    margin: 1% 0;
     padding: 5px;
 }
 
@@ -147,6 +161,7 @@ input{
 
 input[type="text"]{
     width: 70%;
+    background-color: white;
 }
 
 input[type="submit"]{
@@ -169,10 +184,9 @@ input[type="submit"]:active{
 
 /* PORUKE */
 section{
-    height: 55%;
-    margin: 2% 0;
+    height: 80%;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.692);
+    background-color: rgba(255, 255, 255, 0.815);
 }
 
 section ul{
