@@ -1,3 +1,4 @@
+// Spojnica izmedju logickog i vizuelnog dijela stranice
 import Chatroom from "./chat.js";
 
 
