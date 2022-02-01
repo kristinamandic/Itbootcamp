@@ -1,5 +1,6 @@
 // Spojnica izmedju logickog i vizuelnog dijela stranice
 import Chatroom from "./chat.js";
+import { ChatUI } from "./ui.js";
 
 
 let chatroom1 = new Chatroom("js", "korisnik1");
@@ -19,3 +20,8 @@ let chatroom2 = new Chatroom("homeworks", "Jelena");
 chatroom2.getChats(d => {
     console.log(d);
 });
+
+///////////////////////////////////////////
+let ul = document.querySelector("#poruke");
+let c = new ChatUI(ul);
+console.log(c.element);

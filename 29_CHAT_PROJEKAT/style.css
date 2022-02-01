@@ -80,7 +80,7 @@
 body{
     margin: 2% 10%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-image: url(slike/work_desk.jpg) ;
+    background-image: url(images/work_desk.jpg) ;
     background-repeat: no-repeat;
     background-size: cover ;
     height: 100vh;
