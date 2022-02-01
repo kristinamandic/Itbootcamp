@@ -165,4 +165,16 @@ section ul{
     height: 400px;
     margin: 2% 0;
     border-radius: 12px;
+    /* display: flex;
+    flex-direction: column;
+    flex-wrap: wrap; */
+
+}
+
+section ul li{
+    background-color:#8fac71 ;
+    color: #283618;
+    border-radius: 0 10px 10px 10px;
+    padding: 10px;
+    list-style-type: none;
 }

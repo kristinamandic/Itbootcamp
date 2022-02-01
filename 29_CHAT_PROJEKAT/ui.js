@@ -11,24 +11,33 @@ export class ChatUI {
         return this._element;
     }
 
-    // Metod koji sluzi kao template
-    templateLI(doc) {
-        // izvuci podatke iz prosljednjenog dokumenta i zapisati ih u formatu 
-        // username: poruka
-        // time_stamp
-
-        let time = new Date(doc.created_at.seconds * 1000);
+    // Metod za formatiranje polja created_at
+    formatDate(time) {
         let day = time.getDate();
         let month = time.getMonth() + 1;
         let year = time.getFullYear();
         let hours = time.getHours();
         let minutes = time.getMinutes();
 
+        // Dodavanje 0 ispred jednocifrenih vrijednosti
+        day = String(day).padStart(2, "0");
+        month = String(month).padStart(2, "0");
+        hours = String(hours).padStart(2, "0");
+        minutes = String(minutes).padStart(2, "0");
+
+
+        let date = `${day}.${month}.${year}. - ${hours}:${minutes}`;
+        return date;
+    }
+
+    // Metod koji sluzi kao template
+    templateLI(doc) {
+        let date = this.formatDate(doc.created_at.toDate());
         let htmlLi =
             `<li>
                 ${doc.username}: ${doc.message}
                 <br>
-                ${day}.${month}.${year}. ${hours}:${minutes}
+                ${date}
             </li>`;
         this.element.innerHTML += htmlLi;
     }
