@@ -5,14 +5,14 @@ import { ChatUI } from "./ui.js";
 
 let chatroom1 = new Chatroom("js", "korisnik1");
 console.log(chatroom1.room, chatroom1.username); // Testiranje getera
-chatroom1.username = "Milena"; // Testiranje setera za "username"
+chatroom1.username = "milena"; // Testiranje setera za "username"
 chatroom1.room = "general"; // Testiranje setera za "room"
 console.log(chatroom1);
 // chatroom1.addChat("Trening cemo odrzati u srijedu od 18h")
 //     .then(() => console.log("Uspjesno dodat cet!"))
 //     .catch(err => console.log("Doslo je do greske: " + err));
 
-let chatroom2 = new Chatroom("homeworks", "Jelena");
+let chatroom2 = new Chatroom("homeworks", "jelena");
 // chatroom2.addChat("Podsjetnik da uradite domaci")
 //     .then(() => console.log("Uspjesno dodat cet!"))
 //     .catch(err => console.log("Doslo je do greske: " + err));
@@ -32,4 +32,24 @@ console.log(chatUI1.element);
 // Ispis dokumenata iz db na stranici
 chatroom2.getChats(d => {
     chatUI1.templateLI(d);
+});
+
+
+////////////////////////////////////////
+let inputMessage = document.getElementById("message");
+let btnSend = document.getElementById("send");
+
+btnSend.addEventListener("click", e => {
+    e.preventDefault();
+    let message = inputMessage.value;
+    if (message.trim().length > 0) {
+        chatroom2.addChat(message)
+            .then(() => {
+                inputMessage.value = "";
+            })
+            .catch(err => console.log("Doslo je do greske: " + err));
+    }
+    else {
+        inputMessage.value = "";
+    }
 });

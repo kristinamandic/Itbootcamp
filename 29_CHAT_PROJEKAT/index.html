@@ -10,14 +10,16 @@
 </head>
 
 <body>
-    <!-- Naslov ceta -->
+    <!-- Naslov -->
     <header class="row">
-        <h1 class="col-12">ITBootcamp Chat</h1>
+        <h1 class="col-12">
+            <span>IT</span>Bootcamp
+        </h1>
         <h3 class="col-12">Choose a chatroom</h3>
     </header>
 
-    <!-- Meni za sobe -->
-    <nav id="meni" class="row">
+    <!-- Meni za chatrooms -->
+    <nav id="menu" class="row">
         <ul>
             <li class="col-3"><a href="#">#general</a></li>
             <li class="col-3"><a href="#">#js</a></li>
@@ -35,14 +37,14 @@
 
     <!-- Forma za unos poruke -->
     <form id="formSend" class="row">
-        <input class="col-8" type="text" name="send" id="send" placeholder="Your message...">
-        <input class="col-4" type="submit" value="Send">
+        <input class="col-8" type="text" name="message" id="message" placeholder="Your message...">
+        <input class="col-4" type="submit" value="Send" id="send">
     </form>
 
     <!-- Forma za promjenu korisnickog imena -->
     <form id="formUpdate" class="row">
-        <input class="col-8" type="text" name="update" id="update" placeholder="Update username">
-        <input class="col-4" type="submit" value="Update">
+        <input class="col-8" type="text" name="username" id="username" placeholder="Update username">
+        <input class="col-4" type="submit" value="Update" id="update">
     </form>
 
     <!-- Povezivanje sa Firebase-om -->

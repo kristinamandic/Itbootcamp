@@ -19,7 +19,7 @@ class Chatroom {
             this._username = u1;
         }
         else {
-            alert("Korisnicko ime mora da se sastoji od 2 do 10 karaktera i ne smije da ima praznine!")
+            alert("Korisnicko ime mora da se sastoji od 2 do 10 karaktera!");
         }
     }
     get username() {
@@ -30,7 +30,6 @@ class Chatroom {
     async addChat(mess) {
         // Dohvatanje trenutnog vremena potrebnog za timestamp(created_at polje u dokumentu)
         let date = new Date();
-
         // Kreiranje dokumenta/objekta koji prosljedjuejmo bazi podataka
         let obj = {
             message: mess,

@@ -12,7 +12,15 @@ export class ChatUI {
     }
 
     // Metod za formatiranje polja created_at
-    formatDate(time) {
+    formatDate(doc) {
+        // Datum danas 
+        let dateNow = new Date();
+        let dayNow = dateNow.getDate();
+        let monthNow = dateNow.getMonth() + 1;
+        let yearNow = dateNow.getFullYear();
+
+        // Datum slanja poruke
+        let time = doc.created_at.toDate();
         let day = time.getDate();
         let month = time.getMonth() + 1;
         let year = time.getFullYear();
@@ -25,19 +33,25 @@ export class ChatUI {
         hours = String(hours).padStart(2, "0");
         minutes = String(minutes).padStart(2, "0");
 
-
-        let date = `${day}.${month}.${year}. - ${hours}:${minutes}`;
+        // Ukoliko je poruka poslata danas prikazati samo vreme slanja poruke, u suprotnom prikazati datum i vreme slanja poruke 
+        let date;
+        if (day != dayNow || month != monthNow || year != yearNow) {
+            date = `${day}.${month}.${year}. - ${hours}:${minutes}`;
+        }
+        else {
+            date = `${hours}:${minutes}`;
+        }
         return date;
     }
 
     // Metod koji sluzi kao template
     templateLI(doc) {
-        let date = this.formatDate(doc.created_at.toDate());
+        let date = this.formatDate(doc);
         let htmlLi =
             `<li>
-                ${doc.username}: ${doc.message}
+                <span>${doc.username}:</span> ${doc.message}
                 <br>
-                ${date}
+                <p class="time_stamp">${date}</p>
             </li>`;
         this.element.innerHTML += htmlLi;
     }
