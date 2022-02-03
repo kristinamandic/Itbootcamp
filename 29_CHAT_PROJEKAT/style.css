@@ -118,19 +118,15 @@ h3{
     padding: 5px 0;
     margin: 1%;
     border: whitesmoke 1px groove;
+    color: white;
+    text-shadow: 2px 2px #283618;
 }
 
 #menu ul li:hover{
     border: none;
-    /* background-color: #515837; */
+    background-color: #515837;
 }
 
-#menu ul li a{
-    display: block;
-    text-decoration: none;
-    color: white;
-    text-shadow: 2px 2px #283618;
-}
 
 /* SEKCIJA ZA SLANJE PORUKA */
 #background{

@@ -55,4 +55,9 @@ export class ChatUI {
             </li>`;
         this.element.innerHTML += htmlLi;
     }
+
+    // Metod za brisanje poruka sa ekrana
+    clear() {
+        this.element.innerHTML = "";
+    }
 };
