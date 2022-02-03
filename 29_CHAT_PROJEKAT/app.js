@@ -16,7 +16,11 @@ let username = "anonymus";
 if (localStorage.username) {
     username = localStorage.username;
 }
-let chatroom = new Chatroom("general", username);
+let room = "general";
+if (localStorage.room) {
+    room = localStorage.room;
+}
+let chatroom = new Chatroom(room, username);
 let chatUI = new ChatUI(ul);
 
 // Postavljanje vrijednosti u Local Storage
@@ -76,6 +80,7 @@ navBar.addEventListener("click", e => {
 
         // 2. Mjenjanje soba
         chatroom.room = e.target.id;
+        localStorage.setItem("room", chatroom.room);
 
         // 3. Prikaz poruka
         chatroom.getChats(d => {
@@ -83,3 +88,4 @@ navBar.addEventListener("click", e => {
         });
     }
 });
+

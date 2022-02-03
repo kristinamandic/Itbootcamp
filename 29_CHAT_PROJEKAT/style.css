@@ -139,23 +139,23 @@ h3{
 #background{
     background-color: rgba(177, 174, 174, 0.692);
     border-radius: 5px;
-    padding: 2%;
+    padding: 0 2% 2%;
     height: 70%;
     margin: 2% 0;
     border-radius: 10px;
 }
 
+
 /* PORUKE POSTAVKA */
 section{
     height: 80%;
     border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.815);
+    background-color: rgba(236, 236, 222, 0.692);
 }
 
 #messages {
     height: 100%;
     display: flex;
-    /* Da bi poruke bile dole */
     flex-direction: column-reverse; 
     padding: 1%;
     overflow: scroll;
@@ -179,10 +179,10 @@ section{
 
 #messages::-webkit-scrollbar-thumb:hover {
     background: #6f794e; 
-  }
+}
 
 /* PORUKE */
-section ul li{
+#messages li{
     background-color:#8fac71;
     color: #283618;
     border-radius: 0 12px 12px 12px;
@@ -191,17 +191,23 @@ section ul li{
     width: fit-content;
     max-width: 70%;
     word-wrap: break-word;
-    margin: 1%;
+    margin: 5px;
     box-shadow: 3px 3px 5px #283618;
 }
 
-section ul li .time_stamp{
+#messages li:nth-child(3n){
+    background-color: white;
+    border-radius: 12px 12px 0 12px;
+    align-self: flex-end;
+}
+
+#messages li .time_stamp{
     font-size: 12px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #6f794e;
 }
 
-section ul li span{
+#messages li span{
     font-weight: bold;
     font-size: 14px;
 }
@@ -210,8 +216,7 @@ section ul li span{
 /* FORME = INPUTI */
 form{
     display: flex;
-    margin: 1% 0;
-    padding: 5px;
+    padding: 7px;
     justify-content: right;
 }
 
@@ -224,7 +229,7 @@ input{
 }
 
 input[type="text"]{
-    width: 90%;
+    width: 95%;
     background-color: white;
     padding: 1%;
     cursor: text;
@@ -251,8 +256,10 @@ input[type="submit"]:active{
 
 #formUpdate{
     justify-content: right;
-    /* margin-left: 10%; */
+}
 
+#formSend{
+    margin: 1% 0;
 }
 
 #username{

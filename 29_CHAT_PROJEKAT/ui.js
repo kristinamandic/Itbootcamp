@@ -31,7 +31,6 @@ export class ChatUI {
         minutes = String(minutes).padStart(2, "0");
 
         // Ukoliko je poruka poslata danas prikazati samo vreme slanja poruke, u suprotnom prikazati datum i vreme slanja poruke 
-
         if (dateNow.toLocaleDateString() == date.toLocaleDateString()) {
             return `${hours}:${minutes}`;
         }
@@ -50,6 +49,7 @@ export class ChatUI {
                 <p class="time_stamp">${this.formatDate(date)}</p>
             </li>`;
         this.element.innerHTML += htmlLi;
+        return htmlLi;
     }
 
     // Metod za brisanje poruka sa ekrana
