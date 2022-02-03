@@ -2,48 +2,33 @@
 import Chatroom from "./chat.js";
 import { ChatUI } from "./ui.js";
 
+// DOM
+let ul = document.querySelector("#poruke");
+let inputMessage = document.getElementById("message");
+let btnSend = document.getElementById("send");
+let inputUsername = document.querySelector("#username");
+let btnUpdate = document.querySelector("#update");
 
-let chatroom1 = new Chatroom("js", "korisnik1");
-console.log(chatroom1.room, chatroom1.username); // Testiranje getera
-chatroom1.username = "milena"; // Testiranje setera za "username"
-chatroom1.room = "general"; // Testiranje setera za "room"
-console.log(chatroom1);
-// chatroom1.addChat("Trening cemo odrzati u srijedu od 18h")
-//     .then(() => console.log("Uspjesno dodat cet!"))
-//     .catch(err => console.log("Doslo je do greske: " + err));
-
-let chatroom2 = new Chatroom("homeworks", "jelena");
-// chatroom2.addChat("Podsjetnik da uradite domaci")
-//     .then(() => console.log("Uspjesno dodat cet!"))
-//     .catch(err => console.log("Doslo je do greske: " + err));
-
+// Objekti klasa / Instance klasa
+let chatroom = new Chatroom("homeworks", "korisnik1");
+let chatUI = new ChatUI(ul);
 
 // Ispis dokumenata db u konzoli
-chatroom2.getChats(d => {
+chatroom.getChats(d => {
     console.log(d);
 });
 
-///////////////////////////////////////////
-let ul = document.querySelector("#poruke");
-let chatUI1 = new ChatUI(ul);
-console.log(chatUI1.element);
-
-
 // Ispis dokumenata iz db na stranici
-chatroom2.getChats(d => {
-    chatUI1.templateLI(d);
+chatroom.getChats(d => {
+    chatUI.templateLI(d);
 });
 
-
-////////////////////////////////////////
-let inputMessage = document.getElementById("message");
-let btnSend = document.getElementById("send");
-
+// Kada je submit dugme Send posalji poruku
 btnSend.addEventListener("click", e => {
     e.preventDefault();
     let message = inputMessage.value;
     if (message.trim().length > 0) {
-        chatroom2.addChat(message)
+        chatroom.addChat(message)
             .then(() => {
                 inputMessage.value = "";
             })
@@ -54,15 +39,11 @@ btnSend.addEventListener("click", e => {
     }
 });
 
-
-////////////////////////////////////////
-let inputUsername = document.querySelector("#username");
-let btnUpdate = document.querySelector("#update");
-
+// Kada je submit dugme Update izmjeni korisnicko ime
 btnUpdate.addEventListener("click", e => {
     e.preventDefault();
     let username = inputUsername.value;
     // chatroom2.username = username;
-    chatroom2.updateUsername(username);
+    chatroom.updateUsername(username);
     inputUsername.value = "";
 })
