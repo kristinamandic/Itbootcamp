@@ -15,17 +15,14 @@ export class ChatUI {
     formatDate(doc) {
         // Datum danas 
         let dateNow = new Date();
-        let dayNow = dateNow.getDate();
-        let monthNow = dateNow.getMonth() + 1;
-        let yearNow = dateNow.getFullYear();
 
         // Datum slanja poruke
-        let time = doc.created_at.toDate();
-        let day = time.getDate();
-        let month = time.getMonth() + 1;
-        let year = time.getFullYear();
-        let hours = time.getHours();
-        let minutes = time.getMinutes();
+        let date = new Date(doc);
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
 
         // Dodavanje 0 ispred jednocifrenih vrijednosti
         day = String(day).padStart(2, "0");
@@ -34,24 +31,23 @@ export class ChatUI {
         minutes = String(minutes).padStart(2, "0");
 
         // Ukoliko je poruka poslata danas prikazati samo vreme slanja poruke, u suprotnom prikazati datum i vreme slanja poruke 
-        let date;
-        if (day != dayNow || month != monthNow || year != yearNow) {
-            date = `${day}.${month}.${year}. - ${hours}:${minutes}`;
+
+        if (dateNow.toLocaleDateString() == date.toLocaleDateString()) {
+            return `${hours}:${minutes}`;
         }
         else {
-            date = `${hours}:${minutes}`;
+            return `${day}.${month}.${year}. - ${hours}:${minutes}`;
         }
-        return date;
     }
 
     // Metod koji sluzi kao template
     templateLI(doc) {
-        let date = this.formatDate(doc);
+        let date = doc.created_at.toDate();
         let htmlLi =
             `<li>
                 <span>${doc.username}:</span> ${doc.message}
                 <br>
-                <p class="time_stamp">${date}</p>
+                <p class="time_stamp">${this.formatDate(date)}</p>
             </li>`;
         this.element.innerHTML += htmlLi;
     }
