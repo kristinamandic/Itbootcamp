@@ -117,7 +117,7 @@ h3{
     background-color: #606c38;
     padding: 5px 0;
     margin: 1%;
-    border: white 3px groove;
+    border: whitesmoke 1px groove;
 }
 
 #menu ul li:hover{
@@ -132,8 +132,7 @@ h3{
     text-shadow: 2px 2px #283618;
 }
 
-
-/* FORME = INPUTI */
+/* SEKCIJA ZA SLANJE PORUKA */
 #background{
     background-color: rgba(177, 174, 174, 0.692);
     border-radius: 5px;
@@ -142,45 +141,6 @@ h3{
     margin: 2% 0;
     border-radius: 10px;
 }
-
-form{
-    display: flex;
-    justify-content: center;
-    margin: 1% 0;
-    padding: 5px;
-}
-
-input{
-    height: 30px;
-    font-size: 18px;
-    border-radius: 5px;
-    border: #283618 1px solid;
-    color: #283618;
-    margin: 2px;
-}
-
-input[type="text"]{
-    width: 70%;
-    background-color: white;
-}
-
-input[type="submit"]{
-    background-color: #DDA15E;
-    width: 100px;
-    cursor: pointer;
-    box-shadow: 2px 4px rgb(124, 124, 124);
-}
-
-input[type="submit"]:hover{
-    background-color: #df8b42;
-}
-
-input[type="submit"]:active{
-    background-color: #df8b42;
-    box-shadow: 1px 2px #666;
-    transform: translateY(2px);
-}
-
 
 /* PORUKE */
 section{
@@ -220,4 +180,45 @@ section ul li .time_stamp{
 section ul li span{
     font-weight: bold;
     font-size: 14px;
+}
+
+
+/* FORME = INPUTI */
+form{
+    display: flex;
+    justify-content: center;
+    margin: 1% 0;
+    padding: 5px;
+}
+
+input{
+    height: 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: #283618 1px solid;
+    color: #283618;
+    margin: 2px;
+}
+
+input[type="text"]{
+    width: 70%;
+    background-color: white;
+    padding: 1%;
+}
+
+input[type="submit"]{
+    background-color: #DDA15E;
+    width: 100px;
+    cursor: pointer;
+    box-shadow: 2px 4px rgb(124, 124, 124);
+}
+
+input[type="submit"]:hover{
+    background-color: #df8b42;
+}
+
+input[type="submit"]:active{
+    background-color: #df8b42;
+    box-shadow: 1px 2px #666;
+    transform: translateY(2px);
 }

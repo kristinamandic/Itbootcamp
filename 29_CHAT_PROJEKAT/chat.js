@@ -14,12 +14,9 @@ class Chatroom {
 
     // Seter i geter za polje _username
     set username(u) {
-        let u1 = u.trim();
-        if (u1.length >= 2 && u1.length <= 10) {
-            this._username = u1;
-        }
-        else {
-            alert("Korisnicko ime mora da se sastoji od 2 do 10 karaktera!");
+        let validated = this.validateUsername(u);
+        if (validated) {
+            this._username = u;
         }
     }
     get username() {
@@ -59,6 +56,28 @@ class Chatroom {
                     }
                 });
             });
+    }
+
+    // Metoda za provjeru validnosti korisnickog imena
+    validateUsername(u) {
+        let u1 = u.trim();
+        if (u1.length >= 2 && u1.length <= 10) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    // Metoda za obavjestenje o korisnickom imenu
+    updateUsername(u) {
+        let validated = this.validateUsername(u);
+        if (validated) {
+            this._username = u;
+        }
+        else {
+            alert("Korisnicko ime mora da se sastoji od 2 do 10 karaktera!");
+        }
     }
 };
 

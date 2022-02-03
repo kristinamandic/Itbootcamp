@@ -53,3 +53,16 @@ btnSend.addEventListener("click", e => {
         inputMessage.value = "";
     }
 });
+
+
+////////////////////////////////////////
+let inputUsername = document.querySelector("#username");
+let btnUpdate = document.querySelector("#update");
+
+btnUpdate.addEventListener("click", e => {
+    e.preventDefault();
+    let username = inputUsername.value;
+    // chatroom2.username = username;
+    chatroom2.updateUsername(username);
+    inputUsername.value = "";
+})
