@@ -13,6 +13,25 @@ let btnUpdate = document.querySelector("#update");
 let chatroom = new Chatroom("homeworks", "korisnik1");
 let chatUI = new ChatUI(ul);
 
+// Postavljanje vrijednosti u Local Storage
+localStorage.setItem("nazivPromjenljive", 5);
+localStorage.setItem("nazivPromjenljive", 6);
+localStorage.setItem("nazivPromjenljive", "Test string");
+localStorage.setItem("x", 7);
+localStorage.setItem("y", 10);
+
+// Uzimanje vrijesnosti iz Local Storage
+localStorage.x;
+let z = localStorage.x + localStorage.y;
+console.log(z);
+console.log(localStorage.x); // Ako "x" nije definisan, vraca undefined
+if (localStorage.x) {
+    console.log("x postoji");
+}
+else {
+    console.log("x ne postoji");
+}
+
 // Ispis dokumenata db u konzoli
 chatroom.getChats(d => {
     console.log(d);
