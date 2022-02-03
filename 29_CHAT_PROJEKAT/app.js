@@ -10,7 +10,11 @@ let inputUsername = document.querySelector("#username");
 let btnUpdate = document.querySelector("#update");
 
 // Objekti klasa / Instance klasa
-let chatroom = new Chatroom("homeworks", "korisnik1");
+let username = "anonymus";
+if (localStorage.username) {
+    username = localStorage.username;
+}
+let chatroom = new Chatroom("homeworks", username);
 let chatUI = new ChatUI(ul);
 
 // Postavljanje vrijednosti u Local Storage
@@ -21,10 +25,9 @@ localStorage.setItem("x", 7);
 localStorage.setItem("y", 10);
 
 // Uzimanje vrijesnosti iz Local Storage
-localStorage.x;
 let z = localStorage.x + localStorage.y;
 console.log(z);
-console.log(localStorage.x); // Ako "x" nije definisan, vraca undefined
+console.log(localStorage.x);
 if (localStorage.x) {
     console.log("x postoji");
 }
@@ -65,4 +68,5 @@ btnUpdate.addEventListener("click", e => {
     // chatroom2.username = username;
     chatroom.updateUsername(username);
     inputUsername.value = "";
-})
+    localStorage.setItem("username", username);
+});
