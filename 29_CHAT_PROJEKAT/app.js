@@ -3,12 +3,13 @@ import Chatroom from "./chat.js";
 import { ChatUI } from "./ui.js";
 
 // DOM
-let ul = document.querySelector("#poruke");
+let ul = document.querySelector("#messages");
 let inputMessage = document.getElementById("message");
 let btnSend = document.getElementById("send");
 let inputUsername = document.querySelector("#username");
 let btnUpdate = document.querySelector("#update");
 let navBar = document.querySelector("#menu");
+let formUpdate = document.getElementById("formUpdate");
 
 // Objekti klasa / Instance klasa
 let username = "anonymus";

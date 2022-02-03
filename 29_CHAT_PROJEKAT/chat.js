@@ -45,7 +45,7 @@ class Chatroom {
         // "onSnapshot" daje sve promjene do tog trenutka
         this.chats
             .where("room", "==", this.room)
-            .orderBy("created_at")
+            .orderBy("created_at", "desc")
             .onSnapshot(snapshot => {
                 // "snapshot" daje niz tih promjena
                 snapshot.docChanges().forEach(change => {
@@ -74,9 +74,16 @@ class Chatroom {
         let validated = this.validateUsername(u);
         if (validated) {
             this._username = u;
+            let p = document.createElement("p");
+            p.innerHTML += `Hello ${u} &#128516`;
+            p.setAttribute("id", "wellcome");
+            formUpdate.appendChild(p);
+            setInterval(() => {
+                p.remove();
+            }, 3000);
         }
         else {
-            alert("Korisnicko ime mora da se sastoji od 2 do 10 karaktera!");
+            alert("Username must contain 2 to 10 letters!");
         }
     }
 };

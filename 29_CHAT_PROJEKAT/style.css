@@ -3,6 +3,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    cursor: default;
 }
 
 body{
@@ -27,6 +28,12 @@ body{
     }
     #menu ul{
         flex-wrap: wrap;
+    }
+    #wellcome{
+        left: 70% !important;
+    }
+    #username{
+        width: 90% !important;
     }
 }
 
@@ -138,22 +145,43 @@ h3{
     border-radius: 10px;
 }
 
-/* PORUKE */
+/* PORUKE POSTAVKA */
 section{
     height: 80%;
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.815);
 }
 
-section ul{
+#messages {
     height: 100%;
     display: flex;
-    flex-direction: column;
+    /* Da bi poruke bile dole */
+    flex-direction: column-reverse; 
     padding: 1%;
     overflow: scroll;
     overflow-x: hidden;
 }
 
+/* SCROLLBAR */
+#messages::-webkit-scrollbar{
+    width: 17px;
+}
+
+#messages::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(109, 108, 108);
+    border-radius: 10px;
+  }
+
+#messages::-webkit-scrollbar-thumb{
+    background-color: #8fac71;
+    border-radius: 10px;
+}
+
+#messages::-webkit-scrollbar-thumb:hover {
+    background: #6f794e; 
+  }
+
+/* PORUKE */
 section ul li{
     background-color:#8fac71;
     color: #283618;
@@ -164,7 +192,7 @@ section ul li{
     max-width: 70%;
     word-wrap: break-word;
     margin: 1%;
-    box-shadow: 2px 2px 7px #283618;
+    box-shadow: 3px 3px 5px #283618;
 }
 
 section ul li .time_stamp{
@@ -182,14 +210,13 @@ section ul li span{
 /* FORME = INPUTI */
 form{
     display: flex;
-    justify-content: center;
     margin: 1% 0;
     padding: 5px;
+    justify-content: right;
 }
 
 input{
     height: 30px;
-    font-size: 18px;
     border-radius: 5px;
     border: #283618 1px solid;
     color: #283618;
@@ -197,16 +224,19 @@ input{
 }
 
 input[type="text"]{
-    width: 70%;
+    width: 90%;
     background-color: white;
     padding: 1%;
+    cursor: text;
+    font-size: 15px;
 }
 
 input[type="submit"]{
     background-color: #DDA15E;
-    width: 100px;
+    width: 80px;
     cursor: pointer;
     box-shadow: 2px 4px rgb(124, 124, 124);
+    font-size: 18px;
 }
 
 input[type="submit"]:hover{
@@ -217,4 +247,27 @@ input[type="submit"]:active{
     background-color: #df8b42;
     box-shadow: 1px 2px #666;
     transform: translateY(2px);
+}
+
+#formUpdate{
+    justify-content: right;
+    /* margin-left: 10%; */
+
+}
+
+#username{
+    width: fit-content;
+}
+
+/* WELLCOMING MESSAGE */
+#wellcome{
+    background-color: white;
+    padding: 15px;
+    width: fit-content;
+    border-radius: 15px 15px 15px 0;
+    transform: translateY(-55px);
+    position: absolute;
+    left: 78%;
+    font-weight: bold;
+    box-shadow: 3px 3px 5px #362918;
 }
