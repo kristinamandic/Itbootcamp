@@ -55,7 +55,6 @@ btnUpdate.addEventListener("click", e => {
     chatroom.updateUsername(username);
     inputUsername.value = "";
     localStorage.setItem("username", username);
-    location.reload();
 });
 
 

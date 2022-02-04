@@ -12,10 +12,10 @@
 <body>
     <!-- Naslov -->
     <header class="row">
-        <h1 class="col-12">
+        <h1>
             <span>IT</span>Bootcamp
         </h1>
-        <h3 class="col-12">Choose a chatroom</h3>
+        <h3>Choose a chatroom</h3>
     </header>
 
     <!-- Meni za chatrooms -->
@@ -28,37 +28,44 @@
         </ul>
     </nav>
 
+    <!-- Glavni dio sajta -->
     <div id="background">
-        <div id="comands" class="row">
-            <!-- Forma za biranje pozadinske boje imena -->
-            <form id="formColor" action="" class="col-6">
-                <input class="col-8" type="color" name="color" id="color">
-                <input class="col-4" type="submit" value="Choose color" id="choose">
-            </form>
-
-            <!-- Forma za promjenu korisnickog imena -->
-            <form id="formUpdate" class="col-6">
-                <input class="col-8" type="text" name="username" id="username" placeholder="Update username">
-                <input class="col-4" type="submit" value="Update" id="update">
-            </form>
-        </div>
+        <!-- Forma za promjenu korisnickog imena -->
+        <form id="formUpdate" class="row">
+            <input type="text" id="username" placeholder="Update username">
+            <input type="submit" value="Update" id="update">
+        </form>
 
         <!-- Prostor za poruke -->
         <section class="row">
-            <ul class="col-12" id="messages">
+            <ul id="messages">
 
             </ul>
         </section>
 
         <!-- Forma za unos poruke -->
         <form id="formSend" class="row">
-            <!-- <input class="col-8" type="text" name="message" id="message" placeholder="Your message..."> -->
-            <textarea class="col-8" name="message" id="message" placeholder="Your message..."></textarea>
-            <input class="col-4" type="submit" value="Send" id="send">
+            <textarea id="message" placeholder="Your message..."></textarea>
+            <input type="submit" value="Send" id="send">
         </form>
 
-        <!-- Forma za odabir datuma i vremena slanja poruka -->
-        <form id="" class="row"></form>
+        <!-- Div sa svije forme -->
+        <div id="comands" class="row">
+            <!-- Forma za biranje pozadinske boje imena -->
+            <form id="formColor" class="col-6">
+                <input type="color" id="color">
+                <input type="submit" value="Choose Color" id="choose">
+            </form>
+
+            <!-- Forma za odabir datuma i vremena slanja poruka -->
+            <form id="formDate" class="col-6">
+                <div id="divDate">
+                    <input type="datetime-local" id="from">
+                    <input type="datetime-local" id="to">
+                </div>
+                <input type="submit" value="Choose Date" id="date">
+            </form>
+        </div>
     </div>
 
     <!-- Povezivanje sa Firebase-om -->

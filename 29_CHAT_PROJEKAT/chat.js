@@ -87,9 +87,10 @@ class Chatroom {
             p.innerHTML += `Hello ${u} &#128516`;
             p.setAttribute("id", "wellcome");
             formUpdate.appendChild(p);
-            setInterval(() => {
+            setTimeout(() => {
                 p.remove();
-            }, 3000);
+                location.reload();
+            }, 2000);
         }
         else {
             alert("Username must contain 2 to 10 letters!");

@@ -7,7 +7,7 @@
 }
 
 body{
-    margin: 2% 15%;
+    margin: 1% 15%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-image: url(images/work_desk2.jpg) ;
     background-repeat: no-repeat;
@@ -22,6 +22,7 @@ body{
 
 
 /* RESPONSIVE */
+/* TELEFON */
 @media only screen and (max-width:600px){
     [class*="col-"]{
         width: 100%;
@@ -29,14 +30,28 @@ body{
     #menu ul{
         flex-wrap: wrap;
     }
-    #wellcome{
-        left: 70% !important;
+    #formUpdate #wellcome{
+        left: 70%;
     }
-    #username{
-        width: 90% !important;
+    body #background{
+        height: 95%;
+    }
+    #divDate{
+        flex-wrap: wrap;
+        width: 100%;
     }
 }
-
+/* TABLET */
+@media only screen and (min-width: 601px) and (max-width: 820px){
+    .col-6{
+        width: 100% !important;
+        justify-content: center !important;
+    }
+    #background{
+        height: 99% !important;
+    }
+}
+/* RACUNAR */
 @media only screen and (min-width:601px){
     .col-1 {
         width: 8.33%;
@@ -107,6 +122,7 @@ h1 span{
 h3{
     letter-spacing: 2px;
     color: #bc6c25;
+    font-size: 20px;
 }
 
 /* CHATROOMS */
@@ -124,7 +140,7 @@ h3{
     background-color: #606c38;
     padding: 5px 0;
     margin: 1%;
-    border: whitesmoke 1px groove;
+    border: white 1px groove;
     color: white;
     text-shadow: 2px 2px #283618;
 }
@@ -140,33 +156,14 @@ h3{
     background-color: rgba(177, 174, 174, 0.692);
     border-radius: 5px;
     padding: 0 2% 2%;
-    height: 70%;
+    height: 75%;
     margin: 2% 0;
     border-radius: 10px;
 }
 
-#comands{
-    display: flex;
-    flex-wrap: wrap;
-}
-
-#choose{
-    width: fit-content;
-    padding: 5px;
-}
-
-#formColor{
-    justify-content: left;
-}
-
-#color{
-    width: 30%;
-}
-
-
 /* PORUKE POSTAVKA */
 section{
-    height: 80%;
+    height: 70%;
     border-radius: 10px;
     background-color: #e3decbd3;
 }
@@ -175,7 +172,6 @@ section{
     height: 100%;
     display: flex;
     flex-direction: column-reverse;
-    scroll-behavior: smooth;
     padding: 1%;
     overflow: scroll;
     overflow-x: hidden;
@@ -202,7 +198,7 @@ section{
 
 /* PORUKE */
 #messages li{
-    background-color:#8fac71;
+    background-color:#badf93;
     color: #283618;
     border-radius: 0 12px 12px 12px;
     padding: 8px 18px 18px 8px;
@@ -216,7 +212,7 @@ section{
 }
 
 #messages .me{
-    background-color: white;
+    background-color: #f0ae74;
     border-radius: 12px 12px 0 12px;
     align-self: flex-end;
 }
@@ -238,6 +234,7 @@ section{
     position: absolute;
     right: 8px;
     bottom: 10px;
+    cursor: not-allowed;
 }
 
 
@@ -245,6 +242,9 @@ section{
 form{
     display: flex;
     padding: 7px;
+}
+
+#formUpdate{
     justify-content: right;
 }
 
@@ -253,20 +253,18 @@ input, #message{
     border-radius: 5px;
     border: #283618 1px solid;
     color: #283618;
-    margin: 2px;
+    margin: 0 2px;
 }
 
-#username, #message{
-    width: 95%;
-    background-color: white;
-    padding: 1%;
-    cursor: text;
-    font-size: 15px;
+#comands{
+    display: flex;
+    flex-wrap: wrap;
 }
 
+/* Dugmad */
 input[type="submit"]{
     background-color: #DDA15E;
-    width: fit-content;
+    width: 100px;
     padding: 5px;
     cursor: pointer;
     box-shadow: 2px 4px rgb(124, 124, 124);
@@ -279,16 +277,39 @@ input[type="submit"]:active{
     transform: translateY(2px);
 }
 
-#formUpdate{
-    justify-content: right;
+#choose, #date{
+    width: 150px;
 }
 
-#formSend{
-    margin: 1% 0;
+#send{
+    margin-top: 30px;
+}
+
+/* Inputi za unos teksta */
+#username, #message{
+    width: 100%;
+    background-color: white;
+    padding: 1%;
+    cursor: text;
+    font-size: 15px;
 }
 
 #username{
-    width: fit-content;
+    width: fit-content
+}
+
+#message{
+    height: 60px;
+    vertical-align: bottom;
+}
+
+#color, #divDate{
+    display: flex;
+    width: 60%;
+}
+
+#formDate{
+    justify-content: right;
 }
 
 /* WELLCOMING MESSAGE */
