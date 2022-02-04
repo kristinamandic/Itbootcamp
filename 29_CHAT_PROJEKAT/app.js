@@ -9,11 +9,12 @@ let btnSend = document.getElementById("send");
 let inputUsername = document.querySelector("#username");
 let btnUpdate = document.querySelector("#update");
 let navBar = document.querySelector("#menu");
-let formUpdate = document.getElementById("formUpdate");
 let section = document.querySelector("section");
 let btnChoose = document.getElementById("choose");
 let inputColor = document.getElementById("color");
-// inputColor.value = 
+let inputFromDate = document.getElementById("from");
+let inputToDate = document.getElementById("to");
+let btnDate = document.getElementById("date");
 
 // Objekti klasa / Instance klasa
 let username = "anonymus";
@@ -60,6 +61,7 @@ btnUpdate.addEventListener("click", e => {
 
 // Prelazak iz sobe u sobu
 navBar.addEventListener("click", e => {
+    e.preventDefault();
     if (e.target.tagName == "LI") {
         // 1. Izbrisati sve poruke sa ekrana
         chatUI.clear();
@@ -75,7 +77,7 @@ navBar.addEventListener("click", e => {
 
 // Brisanje poruke
 ul.addEventListener("click", e => {
-    console.log(e.target.tagName);
+    e.preventDefault();
     let li = e.target.parentElement;
     if (e.target.tagName == "IMG") {
         if (li.classList.contains("me")) {
@@ -92,11 +94,8 @@ ul.addEventListener("click", e => {
     }
 });
 
-
-// Biranje boje
-// localStorage.setItem("color", "#ffffff");
-inputColor.value = "#e3decb";
-
+// Biranje boje ceta
+inputColor.value = "#ffffff";
 btnChoose.addEventListener("click", e => {
     e.preventDefault();
     let inputColorValue = inputColor.value;
@@ -105,5 +104,27 @@ btnChoose.addEventListener("click", e => {
         section.style.backgroundColor = inputColorValue;
     }, 500);
 });
-
 section.style.backgroundColor = localStorage.color;
+
+// Biranje datuma i vremena poruka koje zelimo da se prikazu
+btnDate.addEventListener("click", e => {
+    e.preventDefault();
+    // From date
+    let inputFromDateValue = inputFromDate.value;
+    let fromDate = new Date(inputFromDateValue);
+    fromDate = firebase.firestore.Timestamp.fromDate(fromDate);
+    // To date
+    let inputToDateValue = inputToDate.value;
+    let toDate = new Date(inputToDateValue);
+    toDate = firebase.firestore.Timestamp.fromDate(toDate);
+    // Brisanje poruka sa ekrana
+    chatUI.clear();
+    // Dodavanje poruka na ekran
+    chatroom.updateRoom(localStorage.room);
+    chatroom.getChats(d => {
+        let msgSent = d.data().created_at;
+        if (msgSent.seconds > fromDate.seconds && msgSent.seconds < toDate.seconds) {
+            chatUI.templateLI(d);
+        }
+    });
+});

@@ -49,7 +49,7 @@ export class ChatUI {
             <span>${doc.username}:</span> ${doc.message}
             <br>
             <p class="time_stamp">${this.formatDate(date)}</p>
-            <img class="bin" src="images/trash2.png">
+            <img class="bin" src="images/trash5.png">
             `;
         htmlLi.id = data.id;
         htmlLi.classList.remove("me");
