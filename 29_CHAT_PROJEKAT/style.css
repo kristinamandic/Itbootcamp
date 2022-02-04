@@ -150,6 +150,11 @@ h3{
     background-color: #515837;
 }
 
+#menu ul .this_room{
+    border: none;
+    background-color: #283618;
+}
+
 
 /* SEKCIJA ZA SLANJE PORUKA */
 #background{

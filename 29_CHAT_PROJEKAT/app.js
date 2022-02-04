@@ -15,6 +15,7 @@ let inputColor = document.getElementById("color");
 let inputFromDate = document.getElementById("from");
 let inputToDate = document.getElementById("to");
 let btnDate = document.getElementById("date");
+let navElements = document.querySelectorAll("#menu ul li");
 
 // Objekti klasa / Instance klasa
 let username = "anonymus";
@@ -68,6 +69,7 @@ navBar.addEventListener("click", e => {
         // 2. Mjenjanje soba
         chatroom.updateRoom(e.target.id);
         localStorage.setItem("room", chatroom.room);
+        location.reload();
         // 3. Prikaz poruka
         chatroom.getChats(d => {
             chatUI.templateLI(d);
@@ -128,3 +130,11 @@ btnDate.addEventListener("click", e => {
         }
     });
 });
+
+// Oznacavanje sobe u kojoj smo
+navElements.forEach(li => {
+    li.classList.remove("this_room");
+    if (li.id == localStorage.room) {
+        li.classList.add("this_room");
+    }
+})
