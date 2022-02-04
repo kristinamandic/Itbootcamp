@@ -51,7 +51,6 @@ class Chatroom {
                 snapshot.docChanges().forEach(change => {
                     // Ispisati dokumente koji su dodati u bazu
                     if (change.type == "added") {
-                        // console.log(change.doc.data());
                         callback(change.doc.data()); // prosljedjivanje dokumenta na ispis (ispis realizujemo kada realizujemo callback funkciju)
                     }
                 });

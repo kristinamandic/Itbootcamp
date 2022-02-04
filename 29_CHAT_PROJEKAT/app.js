@@ -23,24 +23,6 @@ if (localStorage.room) {
 let chatroom = new Chatroom(room, username);
 let chatUI = new ChatUI(ul);
 
-// Postavljanje vrijednosti u Local Storage
-// localStorage.setItem("nazivPromjenljive", 5);
-// localStorage.setItem("nazivPromjenljive", 6);
-// localStorage.setItem("nazivPromjenljive", "Test string");
-// localStorage.setItem("x", 7);
-// localStorage.setItem("y", 10);
-
-// Uzimanje vrijesnosti iz Local Storage
-// let z = localStorage.x + localStorage.y;
-// console.log(z);
-// console.log(localStorage.x);
-// if (localStorage.x) {
-//     console.log("x postoji");
-// }
-// else {
-//     console.log("x ne postoji");
-// }
-
 // Ispis dokumenata iz db na stranici
 chatroom.getChats(d => {
     chatUI.templateLI(d);
@@ -88,4 +70,3 @@ navBar.addEventListener("click", e => {
         });
     }
 });
-
