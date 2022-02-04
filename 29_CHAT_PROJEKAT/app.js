@@ -10,12 +10,15 @@ let inputUsername = document.querySelector("#username");
 let btnUpdate = document.querySelector("#update");
 let navBar = document.querySelector("#menu");
 let formUpdate = document.getElementById("formUpdate");
+let section = document.querySelector("section");
+let btnChoose = document.getElementById("choose");
+let inputColor = document.getElementById("color");
+// inputColor.value = 
 
 // Objekti klasa / Instance klasa
 let username = "anonymus";
 if (localStorage.username) {
     username = localStorage.username;
-
 }
 let room = "general";
 if (localStorage.room) {
@@ -70,9 +73,28 @@ navBar.addEventListener("click", e => {
     }
 });
 
-
 // Brisanje poruke
-// ul.addEventListener("click", e => {
-//     e.preventDefault();
+ul.addEventListener("click", e => {
+    console.log(e.target.tagName);
+    if (e.target.tagName == "IMG") {
+        // Kada brisemo neciju tudju poruku
+        // let target = e.target
+        // target.parentElement.remove();
 
-// });
+        // Kada brisemo svoju poruku
+    }
+});
+
+
+// Biranje boje
+// localStorage.setItem("color", "#ffffff");
+inputColor.value = "#ffffff";
+
+btnChoose.addEventListener("click", e => {
+    e.preventDefault();
+    let inputColorValue = inputColor.value;
+    localStorage.setItem("color", inputColorValue);
+    section.style.backgroundColor = inputColorValue;
+});
+
+section.style.backgroundColor = localStorage.color;

@@ -145,12 +145,30 @@ h3{
     border-radius: 10px;
 }
 
+#comands{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#choose{
+    width: fit-content;
+    padding: 5px;
+}
+
+#formColor{
+    justify-content: left;
+}
+
+#color{
+    width: 30%;
+}
+
 
 /* PORUKE POSTAVKA */
 section{
     height: 80%;
     border-radius: 10px;
-    background-color: rgba(236, 236, 222, 0.692);
+    background-color: #e3decbd3;
 }
 
 #messages {
@@ -248,7 +266,8 @@ input, #message{
 
 input[type="submit"]{
     background-color: #DDA15E;
-    width: 80px;
+    width: fit-content;
+    padding: 5px;
     cursor: pointer;
     box-shadow: 2px 4px rgb(124, 124, 124);
     font-size: 18px;
