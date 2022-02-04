@@ -78,10 +78,17 @@ ul.addEventListener("click", e => {
     console.log(e.target.tagName);
     if (e.target.tagName == "IMG") {
         // Kada brisemo neciju tudju poruku
-        // let target = e.target
-        // target.parentElement.remove();
+        // let li = e.target.parentElement
+        // li.remove();
 
         // Kada brisemo svoju poruku
+        if (confirm("Are you sure you want to delete this message?")) {
+            let li = e.target.parentElement;
+            li.remove();
+            let liID = li.id;
+            // db.collection("chats").doc(liID).delete();
+            chatroom.deleteMsg(liID);
+        }
     }
 });
 
@@ -93,8 +100,11 @@ inputColor.value = "#ffffff";
 btnChoose.addEventListener("click", e => {
     e.preventDefault();
     let inputColorValue = inputColor.value;
-    localStorage.setItem("color", inputColorValue);
-    section.style.backgroundColor = inputColorValue;
+    setInterval(() => {
+        localStorage.setItem("color", inputColorValue);
+        section.style.backgroundColor = inputColorValue;
+    }, 500);
+
 });
 
 section.style.backgroundColor = localStorage.color;

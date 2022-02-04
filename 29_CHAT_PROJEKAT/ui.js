@@ -40,18 +40,21 @@ export class ChatUI {
     }
 
     // Metod koji sluzi kao template
-    templateLI(doc) {
+    templateLI(data) {
+        let doc = data.data(); // Uzimamo podatke iz dokumenta
         let date = doc.created_at.toDate();
         let htmlLi = document.createElement("li");
         htmlLi.innerHTML =
             `
-                <span>${doc.username}:</span> ${doc.message}
-                <br>
-                <p class="time_stamp">${this.formatDate(date)}</p>
-                <img class="bin" src="images/trash2.png">
+            <span>${doc.username}:</span> ${doc.message}
+            <br>
+            <p class="time_stamp">${this.formatDate(date)}</p>
+            <img class="bin" src="images/trash2.png">
             `;
         // this.element.innerHTML += htmlLi;
-        this.element.appendChild(htmlLi);
+        htmlLi.id = data.id;
+        // console.log(data.id);
+        this.element.prepend(htmlLi);
     }
 
     // Metod za brisanje poruka sa ekrana

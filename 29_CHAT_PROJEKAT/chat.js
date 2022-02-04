@@ -55,13 +55,13 @@ class Chatroom {
         // "onSnapshot" daje sve promjene do tog trenutka
         this.unsub = this.chats
             .where("room", "==", this.room)
-            .orderBy("created_at", "desc")
+            .orderBy("created_at")
             .onSnapshot(snapshot => {
                 // "snapshot" daje niz tih promjena
                 snapshot.docChanges().forEach(change => {
                     // Ispisati dokumente koji su dodati u bazu
                     if (change.type == "added") {
-                        callback(change.doc.data()); // prosljedjivanje dokumenta na ispis (ispis realizujemo kada realizujemo callback funkciju)
+                        callback(change.doc); // prosljedjivanje dokumenta na ispis (ispis realizujemo kada realizujemo callback funkciju)
                     }
                 });
             });
@@ -94,6 +94,15 @@ class Chatroom {
         else {
             alert("Username must contain 2 to 10 letters!");
         }
+    }
+
+    // Metoda za brisanje poruke iz baze
+    deleteMsg(id) {
+        this.chats
+            .doc(id)
+            .delete()
+            .then()
+            .catch();
     }
 };
 
