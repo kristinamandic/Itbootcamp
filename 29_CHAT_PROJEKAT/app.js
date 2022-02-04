@@ -15,6 +15,7 @@ let formUpdate = document.getElementById("formUpdate");
 let username = "anonymus";
 if (localStorage.username) {
     username = localStorage.username;
+
 }
 let room = "general";
 if (localStorage.room) {
@@ -68,3 +69,10 @@ navBar.addEventListener("click", e => {
         });
     }
 });
+
+
+// Brisanje poruke
+// ul.addEventListener("click", e => {
+//     e.preventDefault();
+
+// });

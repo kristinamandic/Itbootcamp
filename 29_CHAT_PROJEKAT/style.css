@@ -187,13 +187,14 @@ section{
     background-color:#8fac71;
     color: #283618;
     border-radius: 0 12px 12px 12px;
-    padding: 12px;
+    padding: 8px 18px 18px 8px;
     list-style-type: none;
     width: fit-content;
     max-width: 70%;
     word-wrap: break-word;
     margin: 5px;
     box-shadow: 3px 3px 5px #283618;
+    position: relative;
 }
 
 #messages li:nth-child(3n){
@@ -213,6 +214,14 @@ section{
     font-size: 14px;
 }
 
+.bin{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    right: 8px;
+    bottom: 10px;
+}
+
 
 /* FORME = INPUTI */
 form{
@@ -221,7 +230,7 @@ form{
     justify-content: right;
 }
 
-input{
+input, #message{
     height: 30px;
     border-radius: 5px;
     border: #283618 1px solid;
@@ -229,7 +238,7 @@ input{
     margin: 2px;
 }
 
-input[type="text"]{
+#username, #message{
     width: 95%;
     background-color: white;
     padding: 1%;
@@ -243,10 +252,6 @@ input[type="submit"]{
     cursor: pointer;
     box-shadow: 2px 4px rgb(124, 124, 124);
     font-size: 18px;
-}
-
-input[type="submit"]:hover{
-    background-color: #df8b42;
 }
 
 input[type="submit"]:active{
