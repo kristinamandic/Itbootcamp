@@ -51,9 +51,11 @@ export class ChatUI {
             <p class="time_stamp">${this.formatDate(date)}</p>
             <img class="bin" src="images/trash2.png">
             `;
-        // this.element.innerHTML += htmlLi;
         htmlLi.id = data.id;
-        // console.log(data.id);
+        htmlLi.classList.remove("me");
+        if (doc.username == localStorage.username) {
+            htmlLi.classList.add("me");
+        }
         this.element.prepend(htmlLi);
     }
 

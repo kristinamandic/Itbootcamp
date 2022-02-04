@@ -215,7 +215,7 @@ section{
     position: relative;
 }
 
-#messages li:nth-child(3n){
+#messages .me{
     background-color: white;
     border-radius: 12px 12px 0 12px;
     align-self: flex-end;

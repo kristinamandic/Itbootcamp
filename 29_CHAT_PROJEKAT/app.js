@@ -55,6 +55,7 @@ btnUpdate.addEventListener("click", e => {
     chatroom.updateUsername(username);
     inputUsername.value = "";
     localStorage.setItem("username", username);
+    location.reload();
 });
 
 
@@ -76,18 +77,18 @@ navBar.addEventListener("click", e => {
 // Brisanje poruke
 ul.addEventListener("click", e => {
     console.log(e.target.tagName);
+    let li = e.target.parentElement;
     if (e.target.tagName == "IMG") {
-        // Kada brisemo neciju tudju poruku
-        // let li = e.target.parentElement
-        // li.remove();
-
-        // Kada brisemo svoju poruku
-        if (confirm("Are you sure you want to delete this message?")) {
-            let li = e.target.parentElement;
+        if (li.classList.contains("me")) {
+            if (confirm("Are you sure you want to delete this message?")) {
+                li.remove();
+                let liID = li.id;
+                // db.collection("chats").doc(liID).delete();
+                chatroom.deleteMsg(liID);
+            }
+        }
+        else {
             li.remove();
-            let liID = li.id;
-            // db.collection("chats").doc(liID).delete();
-            chatroom.deleteMsg(liID);
         }
     }
 });
@@ -95,16 +96,15 @@ ul.addEventListener("click", e => {
 
 // Biranje boje
 // localStorage.setItem("color", "#ffffff");
-inputColor.value = "#ffffff";
+inputColor.value = "#e3decb";
 
 btnChoose.addEventListener("click", e => {
     e.preventDefault();
     let inputColorValue = inputColor.value;
-    setInterval(() => {
+    setTimeout(() => {
         localStorage.setItem("color", inputColorValue);
         section.style.backgroundColor = inputColorValue;
     }, 500);
-
 });
 
 section.style.backgroundColor = localStorage.color;
