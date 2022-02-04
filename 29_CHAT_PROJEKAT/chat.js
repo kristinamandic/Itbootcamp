@@ -3,6 +3,7 @@ class Chatroom {
         this.room = r;
         this.username = u;
         this.chats = db.collection("chats");
+        this.unsub = false; // Odredili smo da false bude kao signal da je stranica prvi put ucitana
     }
     // Seter i geter za polje _room
     set room(r) {
@@ -21,6 +22,15 @@ class Chatroom {
     }
     get username() {
         return this._username;
+    }
+
+    // Metod za Update room
+    updateRoom(ur) {
+        this.room = ur;
+        if (this.unsub != false) {
+            // unsub vise nije false nego je u getChats postalo funkcija
+            this.unsub(); // unsub je sada funkcija i pozivam je sa ()
+        }
     }
 
     // Metod za dodavanje nove poruke
@@ -43,7 +53,7 @@ class Chatroom {
     getChats(callback) {
         // Stavljamo osluskivac "onSnapshot" na nasu kolekciju "chats" iz baze podataka
         // "onSnapshot" daje sve promjene do tog trenutka
-        this.chats
+        this.unsub = this.chats
             .where("room", "==", this.room)
             .orderBy("created_at", "desc")
             .onSnapshot(snapshot => {
@@ -72,7 +82,7 @@ class Chatroom {
     updateUsername(u) {
         let validated = this.validateUsername(u);
         if (validated) {
-            this._username = u;
+            this.username = u;
             let p = document.createElement("p");
             p.innerHTML += `Hello ${u} &#128516`;
             p.setAttribute("id", "wellcome");

@@ -59,11 +59,9 @@ navBar.addEventListener("click", e => {
     if (e.target.tagName == "LI") {
         // 1. Izbrisati sve poruke sa ekrana
         chatUI.clear();
-
         // 2. Mjenjanje soba
-        chatroom.room = e.target.id;
+        chatroom.updateRoom(e.target.id);
         localStorage.setItem("room", chatroom.room);
-
         // 3. Prikaz poruka
         chatroom.getChats(d => {
             chatUI.templateLI(d);
