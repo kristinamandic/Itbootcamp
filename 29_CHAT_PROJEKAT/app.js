@@ -122,7 +122,6 @@ btnDate.addEventListener("click", e => {
     // Brisanje poruka sa ekrana
     chatUI.clear();
     // Dodavanje poruka na ekran
-    chatroom.updateRoom(localStorage.room);
     chatroom.getChats(d => {
         let msgSent = d.data().created_at;
         if (msgSent.seconds > fromDate.seconds && msgSent.seconds < toDate.seconds) {
