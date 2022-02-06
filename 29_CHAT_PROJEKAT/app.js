@@ -59,7 +59,6 @@ btnUpdate.addEventListener("click", e => {
     localStorage.setItem("username", username);
 });
 
-
 // Prelazak iz sobe u sobu
 navBar.addEventListener("click", e => {
     e.preventDefault();
@@ -136,4 +135,4 @@ navElements.forEach(li => {
     if (li.id == localStorage.room) {
         li.classList.add("this_room");
     }
-})
+});
