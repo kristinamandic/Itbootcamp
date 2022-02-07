@@ -34,14 +34,14 @@ body{
         left: 70%;
     }
     body #background{
-        height: 60%;
+        height: fit-content;
     }
     #divDate{
         flex-wrap: wrap;
         width: 100%;
     }
     body section{
-        height: 50%;
+        height: 250px;
     }
     #formSend #message{
         height: 30px;
